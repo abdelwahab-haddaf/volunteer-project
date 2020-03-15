@@ -22,6 +22,11 @@ class Post extends Model
         return $this->belongsTo('App\Models\City','city_id');
     }
 
-
+    public function image(){
+        return $this->hasMany(Image::class);
+    }
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 
 }

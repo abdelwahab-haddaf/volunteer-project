@@ -11,6 +11,14 @@
 
 @section('content')
 
+    @section('style')
+        <style>
+            .form-group input[type=file]{
+                z-index: 0;
+                opacity: 1;
+            }
+        </style>
+        @endsection
 
 <div class="container p-3" style="background-color: #fff">
     <form action="{{route('post.store')}}" enctype="multipart/form-data"  method="post" id="create-post">
@@ -64,6 +72,15 @@
                 @endforeach
             </select>
         </div>
+
+        <div class="form-group">
+            <label for="">رفع صور</label>
+            <br>
+            <small id="helpId" class="text-muted">اضافة صور</small>
+            <input type="file" name="images[]" id="" class="form-control" placeholder="" aria-describedby="helpId" multiple>
+
+        </div>
+
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary">حفظ</button>

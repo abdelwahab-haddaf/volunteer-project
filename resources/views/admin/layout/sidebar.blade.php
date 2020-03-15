@@ -1,24 +1,35 @@
+<style>
+
+    .active a , .active i {
+        background-color: #4CAF50 !important;
+        color: white !important;
+    }
+</style>
+
 <div class="sidebar" data-color="purple" data-background-color="white" data-image="{{asset('admin/img/sidebar-1.jpg')}}">
     <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
       Tip 2: you can also add an image using data-image tag
   -->
+
+
+
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-            تیم خلاق
+        <a href="{{url('/')}}" class="simple-text logo-normal">
+         الصفحة الرئيسية للموقع
         </a>
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="nav-item ">
+            <li class="nav-item {{isActive('dashboard')}} ">
                 <a class="nav-link" href="{{route('admin.dashboard')}}">
                     <i class="material-icons">dashboard</i>
                     <p>لوحة التحكم</p>
                 </a>
             </li>
             {{--users list--}}
-            <li class="nav-item">
+            <li class="nav-item {{isActive('user')}}">
                 <a class="nav-link" href="#user" data-toggle="collapse" aria-expanded="false">
                     <i class="material-icons">person</i>
                     <p>الاعضاء</p>
@@ -34,7 +45,7 @@
                 </div>
             </li>
             {{--category list--}}
-            <li class="nav-item">
+            <li class="nav-item {{isActive('category')}}">
                 <a class="nav-link" href="#category" data-toggle="collapse" aria-expanded="false">
                     <i class="material-icons">category</i>
                     <p>التصنيف</p>
@@ -51,7 +62,7 @@
             </li>
 
             {{--city list--}}
-            <li class="nav-item">
+            <li class="nav-item {{isActive('city')}}">
                 <a class="nav-link" href="#city" data-toggle="collapse" aria-expanded="false">
                     <i class="material-icons">location_on</i>
                     <p>المحافظات</p>
@@ -68,11 +79,11 @@
             </li>
 
             {{--message list--}}
-            <li class="nav-item">
+            <li class="nav-item {{isActive('message')}} ">
                 <a class="nav-link" href="#message" data-toggle="collapse" aria-expanded="false">
 {{--                    <i class="material-icons">message</i>--}}
                     <i class="fa fa-envelope"></i>
-                    <p>الرسائل</p>
+                    <p>الرسائل &nbsp; ({{count($newMessage)}})</p>
                 </a>
                 <div class="form-group category collapse" id="message" >
                     <ul class="nav">
@@ -86,7 +97,7 @@
             </li>
 
             {{--post list--}}
-            <li class="nav-item">
+            <li class="nav-item {{isActive('post')}}">
                 <a class="nav-link" href="#post" data-toggle="collapse" aria-expanded="false">
                     <i class="fa fa-clipboard"></i>
                     <p>المنشورات</p>

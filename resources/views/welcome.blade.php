@@ -68,7 +68,10 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">الصفحة الرئيسية</a>
+                        @if(auth()->user()->isAdmin==1)
+                            <a href="{{ route('admin.dashboard') }}">لوحة التحكم</a>
+                            @endif
                     @else
                         <a href="{{ route('login') }}">Login</a>
 

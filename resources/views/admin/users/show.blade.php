@@ -1,38 +1,42 @@
 @extends('admin.layout.app')
 
 @section('title')
-    التصنيف | اضافة
+    {{$user->name}}
 @endsection
 
 
-@section('page_title','اضافة عضو جديد')
+@section('page_title')
+    {{$user->name}}
+    @endsection
 
 @section('content')
 
 <div class="container p-3" style="background-color: #fff">
 
         <div class="form-group" dir="rtl">
-            <label for="">اسم المرسل : </label>
-            <span class="text-info">{{$message->user->name}}</span>
-
+            <label for="">الاسم</label>
+            <input type="text" name="name" id="" class="form-control name" value="{{$user->name}}" aria-describedby="helpId" readonly>
         </div>
 
         <div class="form-group">
-         <p>نص الرسالة :</p>
-
-            {{$message->message}}
+            <label for="">الايميل</label>
+            <input type="email" name="email" id="" class="form-control desc" value="{{$user->email}}" aria-describedby="helpId" readonly>
         </div>
 
         <div class="form-group">
-            <label for="">تاريخ الارسال :
-            <span class="text-info">{{$message->created_at->format('H:i:s - d m y')}}</span>
-            </label>
+            <label for="">نوع المستخدم </label>
+            @if($user->isAdmin==0)
+            <input type="text" name="email" id="" class="form-control desc" value="مستخدم عادي" aria-describedby="helpId" readonly>
+            @else
+            <input type="text" name="email" id="" class="form-control desc" value="مستخدم مسؤول" aria-describedby="helpId" readonly>
+            @endif
         </div>
 
+        <div class="form-group">
+        <label for="">تاريخ الانضمام </label>
+        <input type="text" name="email" id="" class="form-control desc" value="{{$user->created_at->format('d m y - H:i:s')}}" aria-describedby="helpId" readonly>
+        </div>
 
-    <div class="alert alert-danger collapse error" style="display: none">
-
-    </div>
 </div>
     @endsection
 

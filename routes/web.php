@@ -32,9 +32,14 @@ Route::namespace('admin')->prefix('admin')
 
 Auth::routes();
 
+Route::group(['before' => 'auth'], function () {
+    Route::get('post/{id}/{slug?}','homeController@showPost')->name('front.showPost');
+    Route::resource('comment','User\comments');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('empty',function (){
-   return view('empty');
+   return view('layouts.app');
 });
 

@@ -27,7 +27,7 @@
             @foreach($users as $user)
                 <tr class="">
                     <td>{{$user->id}}</td>
-                    <td>{{$user->name}}</td>
+                    <td><a href="{{route('user.show',$user->id)}}" class="nav-link">{{$user->name}}</a> </td>
                     <td>{{$user->email}}</td>
                     <td>
                         @if($user->isAdmin==0)

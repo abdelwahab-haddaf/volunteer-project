@@ -9,14 +9,16 @@ use App\Models\Message;
 class messages extends Controller
 {
     public function index(){
-        $messages = Message::with('userWhoSentMessage','userWhoReceivedMessage')->paginate(10);
+        $messages = Message::orderBy('id','desc')->paginate(10);
         return view('admin.messages.index',['messages'=>$messages]);
 
     }
 
 
     public function show($id){
-
+    $this->readMessage($id);
+    $message = Message::findOrFail($id);
+    return view('admin.messages.show',['message'=>$message]);
     }
 
     public function create(){
@@ -61,6 +63,12 @@ class messages extends Controller
             Message::findOrFail($id)->delete();
             return response(['status'=>true]);
         }
+    }
+
+
+    public function readMessage($id){
+        $message = Message::findOrFail($id);
+        $message->update(['isRead'=>'0']);
     }
 
 }

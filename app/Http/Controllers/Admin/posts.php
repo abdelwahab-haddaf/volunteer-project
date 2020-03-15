@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\City;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Image;
 
 class posts extends Controller
 {
@@ -17,7 +18,9 @@ class posts extends Controller
 
     public function show($id){
         $post = Post::findOrFail($id);
-        return view('admin.posts.show',['post'=>$post]);
+        $images = Image::where('post_id',$id)->get();
+//        dd($images);
+        return view('admin.posts.show',['post'=>$post,'images'=>$images]);
     }
 
     public function create(){
@@ -27,7 +30,7 @@ class posts extends Controller
     }
 
     public function store(Request $request){
-//        dd($request);
+//        dd($request->all());
         if ($request->ajax()){
         $post = $request->validate([
             'title'=>'required|string',
@@ -42,6 +45,27 @@ class posts extends Controller
         $post=  Post::create($post);
         $post->categories()->sync($request->categories);
 
+
+            $images=array();
+            if ($files = $request->file('images')){
+                foreach($files as $file){
+                    $name = $file->getClientOriginalName().'_'.time().'.'.$file->getClientOriginalExtension();
+                    $file->move('image',$name);
+                    $images[]=$name;
+                }
+
+
+                Image::insert([
+                   'name'=>implode("|",$images),
+                   'post_id'=>$post->id,
+                    'created_at'=>now(),
+                    'updated_at'=>now(),
+                ]);
+        }
+
+        ////////////end here
+
+//        dd($post);
             return response(['status'=>true]);
         }
 

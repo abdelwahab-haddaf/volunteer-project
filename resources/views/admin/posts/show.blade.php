@@ -40,6 +40,28 @@
 
         </div>
 
+        @if(count($images)>0)
+        <div class="form-group">
+            <label for="">الصور المرفقة </label>
+            <div class="row">
+            @foreach($images as $image)
+                @php
+                    $imagesImploded = $image->name;
+                    $imagesExploded = explode('|', $imagesImploded);
+                @endphp
+
+                    @foreach($imagesExploded as $img)
+                    <div class="col-md-4">
+                        <a href="{{url(asset('image/'.trim($img)))}}">
+                            <img src="{{ asset('image/'.trim($img)) }}" class="img-fluid rounded-top" style="display: block; height: 200px;width: 400px"> <br>
+                        </a>
+                    </div>
+                    @endforeach
+
+            @endforeach
+            </div>
+        </div>
+        @endif
         <div class="row mx-3 my-3">
             <div class="col-md-12">
                 <div class="row">

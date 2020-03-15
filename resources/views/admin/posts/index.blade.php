@@ -26,7 +26,8 @@
             @foreach($posts as $post)
                 <tr class="">
                     <td>{{$post->id}}</td>
-                    <td>{{$post->user->name}}</td>
+                    <td><a href="{{route('user.show',$post->user->id)}}"> {{$post->user->name}} </a> </td>
+
                     <td>
                         <a href="{{route('post.show',$post->id)}}" class="nav-link">
                             {{ \Illuminate\Support\Str::limit($post->title, 40, $end='...') }}

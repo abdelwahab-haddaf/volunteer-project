@@ -18,19 +18,35 @@
             <tr>
                 <th  class="text-center">الرقم</th>
                 <th  class="text-center">المرسل</th>
-                <th  class="text-center">المستقبل</th>
                 <th  class="text-center">الرسالة</th>
                 <th  class="text-center">حذف</th>
             </tr>
             </thead>
             <tbody>
             @foreach($messages as $message)
-                <tr class="">
+
+                @if ($message->isRead==0)
+                    <tr class="">
+                        <td>{{$message->id}}</td>
+                        <td><a href="{{route('user.show',$message->user->id)}}"> {{$message->user->name}} </a> </td>
+                        <td>
+                            <a href="{{route('message.show',$message->id)}}" class="text-primary">   {{ \Illuminate\Support\Str::limit($message->message, 50, $end='...') }}</a>
+                        </td>
+
+                        <td>
+                            <form action="{{route('message.destroy',$message->id)}}" method="post" id="delete">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger btn-sm mt-4 delete">حذف</button>
+                            </form>
+                        </td>
+                    </tr>
+                @else
+                <tr style="background-color: #c9c6c6;">
                     <td>{{$message->id}}</td>
-                    <td>{{$message->userWhoSentMessage->name}}</td>
-                    <td>{{$message->userWhoReceivedMessage->name}} </td>
+                    <td><a href="{{route('user.show',$message->user->id)}}"> {{$message->user->name}} </a> </td>
                     <td>
-                        {{ \Illuminate\Support\Str::limit($message->message, 50, $end='...') }}
+                        <a href="{{route('message.show',$message->id)}}" class="text-primary">   {{ \Illuminate\Support\Str::limit($message->message, 50, $end='...') }}</a>
                     </td>
 
                     <td>
@@ -41,6 +57,7 @@
                         </form>
                     </td>
                 </tr>
+                @endif
             @endforeach
 
 
