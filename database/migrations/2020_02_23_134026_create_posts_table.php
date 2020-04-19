@@ -19,6 +19,8 @@ class CreatePostsTable extends Migration
             $table->text('content');
             $table->string('address');
             $table->integer('user_id');
+            $table->integer('city_id');
+            $table->integer('post_type');
             $table->softDeletes();
             $table->timestamps();
         });

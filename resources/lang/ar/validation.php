@@ -176,6 +176,7 @@ return [
         'available'             => 'مُتاح',
         'size'                  => 'الحجم',
         'desc'                  => 'الوصف',
-        'comment'                  => 'التعليق'
+        'comment'               => 'التعليق',
+        'current_password'      =>'كلمة المرور الحالية'
     ],
 ];

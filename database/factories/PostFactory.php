@@ -7,9 +7,11 @@ use Faker\Generator as Faker;
 
 $factory->define(Post::class, function (Faker $faker) {
     return [
-        'title' => $faker->sentence,
+        'title' => $faker->realText(50,1),
         'address' => $faker->address,
-        'content' => $faker->paragraphs(rand(2,5),true),
+        'content' => $faker->realText(200,2),
         'user_id' => rand(1,200),
+        'city_id' => rand(1,200),
+        'post_type' => rand(0,1),
     ];
 });

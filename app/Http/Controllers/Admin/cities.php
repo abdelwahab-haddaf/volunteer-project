@@ -31,7 +31,7 @@ class cities extends Controller
             ]);
 
             City::create($city);
-            return response(['status'=>true , 'data']);
+            return response(['status'=>true]);
         }
 
     }

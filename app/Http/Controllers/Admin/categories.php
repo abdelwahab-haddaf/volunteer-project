@@ -9,7 +9,7 @@ Use App\Models\Category;
 class categories extends Controller
 {
     public function index(){
-        $categories = Category::all();
+        $categories = Category::orderBy('id','desc')->paginate(30);
         return view('admin.categories.index',['categories'=>$categories]);
 
     }

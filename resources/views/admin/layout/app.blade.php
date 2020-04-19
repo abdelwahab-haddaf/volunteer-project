@@ -40,8 +40,11 @@
 
     {{--    Data table css --}}
     <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <!--Css Animate-->
+    <link href="{{asset('admin/css/animate.css')}}" rel="stylesheet" />
+    <script src="{{asset('admin/js/wow.min.js')}}"></script>
 
     <!-- Style Just for persian demo purpose, don't include it in your project -->
     <style>
@@ -133,6 +136,9 @@
 
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
     @yield('js')
 
 </body>

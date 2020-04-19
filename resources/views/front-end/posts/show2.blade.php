@@ -1,12 +1,69 @@
 @extends('layouts.app')
 
+@section('style')
+    <style>
+
+        .attatchment-images {
+            display: block;
+            height: 200px;
+            width: 400px;
+        }
+
+
+        @media only screen and (max-width: 768px) {
+
+            .attatchment-images {
+                height: 200px;
+                width: 170px;
+                display: block;
+            }
+
+        }
+    </style>
+    @endsection
+
 @section('content')
-    <div class="form-group text-right">
-        <label for=""></label>
-        <h4>{{$post->title}}</h4>
-        <h5>تم النشر بواسطة : <span class="text-primary"> {{$post->user->name}} </span></h5>
-        <p>{{$post->content}}</p>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group text-right">
+                <label for=""></label>
+                <h4>{{$post->title}}</h4>
+                <h5>تم النشر بواسطة : <span class="text-primary"> {{$post->user->name}} </span></h5>
+                <p>{{$post->content}}</p>
+            </div>
+        </div>
+        <div class="col-6 pt-3 text-left">
+            <a href="{{route('mypost.edit',$post->id)}}" class="btn btn-secondary">تعديل</a>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete">حذف</button>
+        </div>
     </div>
+    {{--Modal for confirmation  --}}
+    <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">تأكيد حذف </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p> {{\Illuminate\Support\Str::limit($post->content,100)}} </p>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-start">
+                    <form action="{{route('mypost.destroy',$post->id)}}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-outline-success">حذف</button>
+                    </form>
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">الغاء</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="form-group text-right">
         <label>المحافظة :</label>
@@ -30,7 +87,7 @@
                     @foreach($imagesExploded as $img)
                         <div class="col-md-4">
                             <a href="{{url(asset('image/'.trim($img)))}}">
-                                <img src="{{ asset('image/'.trim($img)) }}" class="img-fluid rounded-top" style="display: block; height: 200px;width: 400px"> <br>
+                                <img src="{{ asset('image/'.trim($img)) }}" class="img-fluid rounded-top attatchment-images" > <br>
                             </a>
                         </div>
                     @endforeach
@@ -38,9 +95,10 @@
                 @endforeach
             </div>
         </div>
+        <hr>
     @endif
 
-    <hr>
+
     <div class="form-group text-right">
         <div class="row">
         @foreach($post->categories as $cat)

@@ -7,6 +7,7 @@ use App\Models\Message;
 use App\Models\Post;
 use App\Models\User;
 Use App\Models\Category;
+use Illuminate\Http\Request;
 
 class home extends Controller
 {

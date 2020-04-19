@@ -80,20 +80,11 @@
 
             {{--message list--}}
             <li class="nav-item {{isActive('message')}} ">
-                <a class="nav-link" href="#message" data-toggle="collapse" aria-expanded="false">
-{{--                    <i class="material-icons">message</i>--}}
+                <a  class="nav-link" href="{{route('message.index')}}" >
                     <i class="fa fa-envelope"></i>
                     <p>الرسائل &nbsp; ({{count($newMessage)}})</p>
                 </a>
-                <div class="form-group category collapse" id="message" >
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a  class="nav-link" href="{{route('message.index')}}" > عرض</a>
-{{--                            <a  class="nav-link" href="{{route('message.create')}}"> اضافة</a>--}}
-                        </li>
 
-                    </ul>
-                </div>
             </li>
 
             {{--post list--}}
@@ -113,7 +104,36 @@
                 </div>
             </li>
 
+            {{--advertisement list --}}
+            <li class="nav-item {{isActive('advertisement')}}">
+                <a class="nav-link" href="#advertisement" data-toggle="collapse" aria-expanded="false">
+                    <i class="fa fa-envelope"></i>
+                    <p>الاعلانات</p>
+                </a>
+                <div class="form-group advertisement collapse" id="advertisement" >
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a  class="nav-link" href="{{route('advertisement.index')}}" > عرض</a>
+                            <a  class="nav-link" href="{{route('advertisement.create')}}"> اضافة</a>
+                        </li>
 
+                    </ul>
+                </div>
+            </li>
+
+            {{--logout list  --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}" data-toggle="collapse" aria-expanded="false"
+                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    <i class="fa fa-envelope"></i>
+                    <p>تسجيل الخروج</p>
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
 
         </ul>
     </div>

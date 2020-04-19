@@ -40,55 +40,55 @@
 </div>
     @endsection
 
-@section('js')
-    <script>
+{{--@section('js')--}}
+{{--    <script>--}}
 
-        $(document).on('submit','#create',function (e) {
-            e.preventDefault();
-            var url = $(this).attr('action'),
-                request = $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN':$('input[name="_token"]').val()
-                },
-                    url:url,
-                    method:"post",
-                    data: new FormData(this),
-                    dataType:"json",
-                    cache:false,
-                    contentType:false,
-                    processData:false,
-                    beforeSend:function () {
-                        $('.error').hide();
-                        $('.error').empty();
-                    },
-                    success: function () {
+{{--        $(document).on('submit','#create',function (e) {--}}
+{{--            e.preventDefault();--}}
+{{--            var url = $(this).attr('action'),--}}
+{{--                request = $.ajax({--}}
+{{--                headers: {--}}
+{{--                    'X-CSRF-TOKEN':$('input[name="_token"]').val()--}}
+{{--                },--}}
+{{--                    url:url,--}}
+{{--                    method:"post",--}}
+{{--                    data: new FormData(this),--}}
+{{--                    dataType:"json",--}}
+{{--                    cache:false,--}}
+{{--                    contentType:false,--}}
+{{--                    processData:false,--}}
+{{--                    beforeSend:function () {--}}
+{{--                        $('.error').hide();--}}
+{{--                        $('.error').empty();--}}
+{{--                    },--}}
+{{--                    success: function () {--}}
 
-                        new Noty({
-                            type:'success',
-                            layout:'bottomCenter',
-                            text:"تم ادخال البيانات بنجاح",
-                            timeout:5000,
-                            killer: true,
-                        }).show();
+{{--                        new Noty({--}}
+{{--                            type:'success',--}}
+{{--                            layout:'bottomCenter',--}}
+{{--                            text:"تم ادخال البيانات بنجاح",--}}
+{{--                            timeout:5000,--}}
+{{--                            killer: true,--}}
+{{--                        }).show();--}}
 
-                        $('.name').val('');
-                        $('.desc').val('');
+{{--                        $('.name').val('');--}}
+{{--                        $('.desc').val('');--}}
 
-                    },
-                    error: function (xhr) {
-                        $('.error').show();
-                        console.log((xhr.responseJSON.errors));
-                        $('.error').html('');
+{{--                    },--}}
+{{--                    error: function (xhr) {--}}
+{{--                        $('.error').show();--}}
+{{--                        console.log((xhr.responseJSON.errors));--}}
+{{--                        $('.error').html('');--}}
 
-                        $.each(xhr.responseJSON.errors, function(key,value) {
-                            $('.error').append('<li>'+value+'</li>');
-                        });
-                    }
+{{--                        $.each(xhr.responseJSON.errors, function(key,value) {--}}
+{{--                            $('.error').append('<li>'+value+'</li>');--}}
+{{--                        });--}}
+{{--                    }--}}
 
-                });
+{{--                });--}}
 
-        });
-    </script>
+{{--        });--}}
+{{--    </script>--}}
 
-    @endsection
+{{--    @endsection--}}
 

@@ -1,10 +1,16 @@
 @extends('admin.layout.app')
 
 @section('content')
+<!--
+bounceInRight
+bounceInDown
+bounceInDown
+bounceInLeft
 
+-->
 
     <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 wow bounceInRight">
             <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
                     <div class="card-icon">
@@ -29,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 wow bounceInDown">
             <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
                     <div class="card-icon">
@@ -54,8 +60,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
+        <div class="col-lg-3 col-md-6 col-sm-6 wow bounceInDown">
+            <div class="card card-stats ">
                 <div class="card-header card-header-info card-header-icon">
                     <div class="card-icon">
                         <i class="fa fa-envelope"></i>
@@ -79,7 +85,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 wow bounceInLeft">
             <div class="card card-stats">
                 <div class="card-header card-header-rose card-header-icon">
                     <div class="card-icon">
@@ -108,8 +114,13 @@
     </div>
 
     <div class="row">
-{{--        @for($i=0 ; $i<1 ; $i++ )--}}
-            <div class="col-md-4">
+        <!--
+        fadeInRight
+        bounceIn
+        fadeInLeft
+        -->
+
+        <div class="col-md-4 wow fadeInRight">
                 <div class="card card-chart">
                     <div class="card-header card-header-success">
                         <div class="ct-chart" id="dailySalesChart"></div>
@@ -127,10 +138,7 @@
                     </div>
                 </div>
             </div>
-{{--            @endfor--}}
-
-
-        <div class="col-md-4">
+        <div class="col-md-4 wow bounceIn">
             <div class="card card-chart">
                 <div class="card-header card-header-warning">
                     <div class="ct-chart" id="websiteViewsChart"></div>
@@ -146,7 +154,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 wow fadeInLeft">
             <div class="card card-chart">
                 <div class="card-header card-header-danger">
                     <div class="ct-chart" id="completedTasksChart"></div>
@@ -164,15 +172,16 @@
         </div>
     </div>
     <div class="row">
+
         <div class="col-lg-6 col-md-12">
             <div class="card">
-                <div class="card-header card-header-warning">
+                <div class="card-header card-header-warning wow slideInDown">
                     <h4 class="card-title">انضم حديثا</h4>
                     <p class="card-category">آخر خمسة أعضاء تم انضمامهم إلينا</p>
                 </div>
                 <div class="card-body table-responsive">
                     <table class="table table-hover">
-                        <thead class="text-warning">
+                        <thead class="text-warning wow slideInDown">
                         <th>الرقم</th>
                         <th>الاسم</th>
                         <th>الايميل</th>
@@ -180,7 +189,7 @@
                         </thead>
                         <tbody>
                         @foreach($last_users as $index=>$lu)
-                        <tr>
+                        <tr class="wow slideInUp">
                             <td>{{$index+1}}</td>
                             <td>{{$lu->name}}</td>
                             <td>{{$lu->email}}</td>
@@ -197,15 +206,15 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-6 col-md-12 ">
             <div class="card">
-                <div class="card-header card-header-success">
+                <div class="card-header card-header-success wow slideInDown">
                     <h4 class="card-title">آخر المنشورات</h4>
                     <p class="card-category">آخر خمسة منشورات تم نشرها عبر الموقع</p>
                 </div>
                 <div class="card-body table-responsive">
                     <table class="table table-hover">
-                        <thead class="text-warning">
+                        <thead class="text-warning wow slideInDown">
                         <th>الرقم</th>
                         <th>العنوان</th>
                         <th>اسم المستخدم</th>
@@ -213,7 +222,7 @@
                         </thead>
                         <tbody>
                         @foreach($last_posts as $index=>$p)
-                            <tr>
+                            <tr class="wow wow slideInUp">
                                 <td>{{$index+1}}</td>
                                 <td>{{$p->title}}</td>
                                 <td>{{$p->user->name}}</td>

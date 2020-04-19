@@ -15,8 +15,7 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('receiver_id');
-            $table->integer('sender_id');
+            $table->integer('user_id');
             $table->text('message');
             $table->tinyInteger('isRead')->default(0);
             $table->softDeletes();

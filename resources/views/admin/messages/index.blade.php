@@ -26,7 +26,7 @@
             @foreach($messages as $message)
 
                 @if ($message->isRead==0)
-                    <tr class="">
+                    <tr class="wow slideInUp">
                         <td>{{$message->id}}</td>
                         <td><a href="{{route('user.show',$message->user->id)}}"> {{$message->user->name}} </a> </td>
                         <td>
@@ -42,11 +42,11 @@
                         </td>
                     </tr>
                 @else
-                <tr style="background-color: #c9c6c6;">
+                <tr class="wow slideInUp" style="background-color: #c9c6c6;">
                     <td>{{$message->id}}</td>
                     <td><a href="{{route('user.show',$message->user->id)}}"> {{$message->user->name}} </a> </td>
                     <td>
-                        <a href="{{route('message.show',$message->id)}}" class="text-primary">   {{ \Illuminate\Support\Str::limit($message->message, 50, $end='...') }}</a>
+                        <a href="{{route('message.show',$message->id)}}" class="text-primary" onclick="read()">   {{ \Illuminate\Support\Str::limit($message->message, 50, $end='...') }}</a>
                     </td>
 
                     <td>
@@ -78,85 +78,90 @@
 </div>
 @endsection
 
-    @section('js')
-        <script>
-            $(document).on('click','.delete',function (e) {
-                e.preventDefault();
+@section('js')
+    <script>
+        $(document).on('click','.delete',function (e) {
+            e.preventDefault();
 
-                var that = $(this);
-                var n = new Noty({
-                    text:'تأكيد عملية الحذف ' ,
-                    type:'error',
-                    killer:true,
-                    layout:'bottomCenter',
-                    buttons:[
-                        Noty.button('نعم','btn btn-danger m-2',function () {
-                            that.closest('form').submit();
-                            that.parents("tr").remove();
-                        }),
-                        Noty.button('لا','btn btn-success m-2',function () {
-                            n.close();
-                        })
-                    ]
-                });
-                n.show();
-
+            var that = $(this);
+            var n = new Noty({
+                text:'تأكيد عملية الحذف ' ,
+                type:'error',
+                killer:true,
+                layout:'bottomCenter',
+                buttons:[
+                    Noty.button('نعم','btn btn-danger m-2',function () {
+                        that.closest('form').submit();
+                        that.parents("tr").remove();
+                    }),
+                    Noty.button('لا','btn btn-success m-2',function () {
+                        n.close();
+                    })
+                ]
             });
+            n.show();
+
+        });
 
 
-            $(document).on('submit','#delete',function (e) {
-                e.preventDefault();
-                var url = $(this).attr('action'),
-                    request = $.ajax({
-                        headers: {
-                            'X-CSRF-TOKEN':$('input[name="_token"]').val()
-                        },
-                        url:url,
-                        method:"post",
-                        data: new FormData(this),
-                        dataType:"json",
-                        cache:false,
-                        contentType:false,
-                        processData:false,
-                        beforeSend:function () {
-                            $('.error').hide();
-                            $('.error').empty();
-                        },
-                        success: function () {
-                            $(this).parent("tr").remove();
-                            new Noty({
-                                type:'success',
-                                layout:'bottomCenter',
-                                text:"تم حذف البيانات بنجاح",
-                                timeout:5000,
-                                killer: true,
-                            }).show();
+        $(document).on('submit','#delete',function (e) {
+            e.preventDefault();
+            var url = $(this).attr('action'),
+                request = $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN':$('input[name="_token"]').val()
+                    },
+                    url:url,
+                    method:"post",
+                    data: new FormData(this),
+                    dataType:"json",
+                    cache:false,
+                    contentType:false,
+                    processData:false,
+                    beforeSend:function () {
+                        $('.error').hide();
+                        $('.error').empty();
+                    },
+                    success: function () {
+                        $(this).parent("tr").remove();
+                        new Noty({
+                            type:'success',
+                            layout:'bottomCenter',
+                            text:"تم حذف البيانات بنجاح",
+                            timeout:5000,
+                            killer: true,
+                        }).show();
 
-                            },
-                        error: function (xhr) {
-                            $('.error').show();
-                            console.log((xhr.responseJSON.errors));
-                            $('.error').html('');
+                    },
+                    error: function (xhr) {
+                        $('.error').show();
+                        console.log((xhr.responseJSON.errors));
+                        $('.error').html('');
 
-                            $.each(xhr.responseJSON.errors, function(key,value) {
-                                $('.error').append('<li>'+value+'</li>');
-                            });
-                        }
+                        $.each(xhr.responseJSON.errors, function(key,value) {
+                            $('.error').append('<li>'+value+'</li>');
+                        });
+                    }
 
-                    });
-
-            });
-
-            $(document).ready(function () {
-                $('.users_table').DataTable({
-                    "paging":   false,
-                    "ordering": false,
-                    "info":     false,
                 });
 
-                $('.dataTables_wrapper  .row div').first().remove();
-            })
+        });
 
+        $(document).ready(function () {
+            $('.users_table').DataTable({
+                "paging":   false,
+                "ordering": false,
+                "info":     false,
+            });
+
+            $('.dataTables_wrapper  .row div').first().remove();
+        })
+
+
+        //read message
+        // $('table tr a').click(function (e) {
+        //     $(this).parents("tr").css("background-color", "red");
+        // })
 
 
     </script>

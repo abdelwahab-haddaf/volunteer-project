@@ -8,6 +8,7 @@ use App\Models\City;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Image;
+use Illuminate\Support\Facades\DB;
 
 class posts extends Controller
 {
@@ -30,7 +31,6 @@ class posts extends Controller
     }
 
     public function store(Request $request){
-//        dd($request->all());
         if ($request->ajax()){
         $post = $request->validate([
             'title'=>'required|string',
@@ -54,12 +54,11 @@ class posts extends Controller
                     $images[]=$name;
                 }
 
-
                 Image::insert([
                    'name'=>implode("|",$images),
                    'post_id'=>$post->id,
-                    'created_at'=>now(),
-                    'updated_at'=>now(),
+                   'created_at'=>now(),
+                   'updated_at'=>now(),
                 ]);
         }
 
@@ -105,6 +104,8 @@ class posts extends Controller
     public function destroy(Request $request , $id){
         if ($request->ajax()){
             post::findOrFail($id)->delete();
+            Image::where('post_id',$id)->delete();
+            DB::table('category_post')->where('post_id',$id)->delete();
             return response(['status'=>true]);
         }
     }
