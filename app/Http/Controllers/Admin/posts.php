@@ -76,31 +76,43 @@ class posts extends Controller
         $post=post::FindOrFail($id);
         return view('admin.posts.edit',['post'=>$post]);
     }
-    public function update(Request $request , $id){
 
-        if ($request->ajax()) {
-            $data =  post::where('id',$id)->first();
+        public function update(Request $request, $id)
+        {
+//        if ($request->ajax()){
             $post = $request->validate([
-                'name' => 'required|string',
-                'email'=>'required|unique:posts,email,'.$id,
-                'password' => 'required|confirmed|string|min:8',
-                'password_confirmation' => 'required|string',
-                'current_password' => 'required',
+                'title'=>'required|string',
+                'content'=>'required|string',
+                'address'=>'required|string',
+                'city_id'=>'required|integer',
+                'post_type'=>'required|integer',
+
             ]);
-            $post['password'] = bcrypt(\request('password'));
-            if (Hash::check($post['current_password'],$data['password'])){
-                post::findOrFail($id)->update($post);
-                return response(['status' => true]);
 
-            }
-            else{
-//                    return session('error','خطأ في كلمة المرور');
-//                    session('error','كلمة المرور الحالية خاطئة');
-//                    return response(['status' => false ,'message'=>'خطأ في كلمة المرور الحالية']);
+            $post = ['user_id'=>auth()->user()->id]+$post;
+            $post=  Post::findOrfail($id)->update($post);
+            $post->categories()->sync($request->categories);
+
+            $images=array();
+            if ($files = $request->file('images')){
+                foreach($files as $file){
+                    $name = $file->getClientOriginalName().'_'.time().'.'.$file->getClientOriginalExtension();
+                    $file->move('image',$name);
+                    $images[]=$name;
+                }
+
+                Image::where('post_id',$post->id)->update([
+                    'name'=>implode("|",$images),
+                    'post_id'=>$post->id,
+                    'created_at'=>now(),
+                    'updated_at'=>now(),
+                ]);
             }
 
+//            return response(['status'=>true]);
+//        }
         }
-    }
+
     public function destroy(Request $request , $id){
         if ($request->ajax()){
             post::findOrFail($id)->delete();

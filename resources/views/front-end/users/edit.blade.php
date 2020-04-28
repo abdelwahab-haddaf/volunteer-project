@@ -44,30 +44,36 @@
         </div>
 
         <div class="form-group">
-            <label for="">نبذة عن نفسك</label>
-                <textarea name="bio" class="form-control p-2" style=" width:100% ; height: 150px;resize: none" autofocus>{{isset($extra)? $extra->bio : ''}} {{old('bio')}} </textarea>
+            <label for="">  نبذة عن نفسك : </label>
+                <textarea name="bio" class="form-control p-2" style=" width:100% ; height: 150px;resize: none" autofocus>{{isset($extra)? $extra->bio : ''}}  </textarea>
         </div>
 
 
         <div class="form-group">
             <label for="">التخصص :</label>
-            <input type="text" name="study" id="" class="form-control " value="{{isset($extra)? $extra->study : ''}} {{old('study')}}"  >
+            <input type="text" name="study" id="" class="form-control " value="{{isset($extra)? $extra->study : ''}} "  >
         </div>
 
         <div class="form-group">
             <label for="">مكان الإقامة :</label>
-            <input type="text" name="address" id="" class="form-control " value="{{isset($extra)? $extra->address : ''}} {{old('address')}}"  >
+            <input type="text" name="address" id="" class="form-control " value="{{isset($extra)? $extra->address : ''}} "  >
         </div>
 
         <div class="form-group">
-            <label for="">رقم الهاتف</label>
-            <input type="text" name="phone" id="" class="form-control " value="{{isset($extra)? $extra->phone : ''}} {{old('phone')}}"  >
+            <label for="">رقم الهاتف :</label>
+            <input type="text" name="phone" id="" class="form-control " value="{{isset($extra)? $extra->phone : ''}} "  >
         </div>
+
+        <div class="form-group">
+            <label for="">العمل : </label>
+            <input type="text" name="work" id="" class="form-control " value="{{isset($extra)? $extra->work : ''}} "  >
+        </div>
+
 
 
         <div class="form-group">
             <label for=""> المهارات :</label>
-            <input type="text" name="skills" class="form-control desc" value="{{isset($extra)? $extra->skills : ''}} {{old('skills')}}"  aria-describedby="helpId">
+            <input type="text" name="skills" class="form-control desc" value="{{isset($extra)? $extra->skills : ''}}"  aria-describedby="helpId">
             <small id="helpId" class="text-muted">ادخل مهاراتك مفصولة بـ(-) بين كل مهارة و أخرى</small>
 
         </div>

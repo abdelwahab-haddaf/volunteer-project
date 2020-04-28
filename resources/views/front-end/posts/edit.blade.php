@@ -15,10 +15,28 @@
     <form action="{{route('mypost.update',$post->id)}}" enctype="multipart/form-data"  method="post" id="update-post">
         @csrf
         @method('put')
-        <div class="form-group" dir="rtl">
-            <label for="">العنوان</label>
-            <input type="text" name="name" id="" class="form-control " placeholder="" aria-describedby="helpId" value="{{$post->title}}" autofocus>
+
+        <div class="form-group">
+            <label for="title">نوع المنشور</label> <br>
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-success active">
+                    عرض مساعدة
+                    <input type="radio" value="1" name="post_type" id="" autocomplete="off" {{isset($post)&& $post->post_type==1 ? 'checked': ''}} >
+                </label>
+                <label class="btn btn-danger">
+                    طلب مساعدة
+                    <input type="radio" value="0" name="post_type" id="" autocomplete="off" {{isset($post)&& $post->post_type==0 ? 'checked': ''}} >
+{{--                    <input type="radio" value="0" name="post_type" id="" autocomplete="off">--}}
+                </label>
+            </div>
         </div>
+
+
+        <div class="form-group" dir="rtl">
+            <label for="title">العنوان</label>
+            <input type="text" name="title" id="title" class="form-control " placeholder="" aria-describedby="helpId" value="{{$post->title}}">
+        </div>
+
 
         <div class="form-group">
             <label for="">التفاصيل</label>

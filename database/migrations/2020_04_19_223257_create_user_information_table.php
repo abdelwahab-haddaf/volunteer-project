@@ -20,6 +20,7 @@ class CreateUserInformationTable extends Migration
             $table->string('address');
             $table->string('study');
             $table->string('skills');
+            $table->string('work');
             $table->string('phone');
             $table->text('bio');
             $table->timestamps();

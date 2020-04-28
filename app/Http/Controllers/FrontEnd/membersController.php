@@ -76,7 +76,8 @@ class membersController extends Controller
         $data = $request->validate([
             'address'=>'nullable|string',
             'skills'=>'nullable|string',
-            'bio'=>'nullable|string|max:200',
+            'work'=>'nullable|string',
+            'bio'=>'nullable|string|max:400',
             'phone'=>'nullable|numeric',
             'study'=>'nullable|string',
             'profile_image'=>'nullable|image|mimes:jpg,jpeg,png|max:4096',
@@ -90,6 +91,7 @@ class membersController extends Controller
         }
 
         $data=$data+['user_id'=>$id];
+//
         if ($user != null){
             $user->update($data);
         }

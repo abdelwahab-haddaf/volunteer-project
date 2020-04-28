@@ -4,115 +4,136 @@
     {{$user->name}}
 @endsection
 
+@section('style')
+    <style>
+.advertisement {
+    width: 80%;
+    height: 207px;
+}
+.advertisement img {
+    height: 100%;
+}
+.personal-image img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+        }
+
+    </style>
+    @endsection
 
 @section('page_title')
     {{$user->name}}
 @endsection
 
+
+
 @section('content')
 
-    <div class="container p-3 mx-5" style="background-color: #fff">
-        <div class="row d-flex justify-content-start">
-            <div class="col-6 wow slideInRight">
-                <div class="form-group" dir="rtl">
-                    <label for="">الاسم :</label>
-                    <p class="bg-light">{{$user->name}}</p>
-                </div>
-                @if ($extra != null)
-                    @if ($extra->bio != null)
-                        <div class="form-group" >
-                            <label for="">نبذة :</label>
-                            <p class="bg-light">{{$extra->bio}}</p>
-                        </div>
-                    @endif
-
-                @endif
-                <div class="form-group">
-                    <label for="">الايميل :</label>
-                    <p class="bg-light">{{$user->email}}</p>
-                </div>
-
-                @if($user->isAdmin==1)
-                <div class="form-group">
-                    <label for="">نوع المستخدم </label>
-                    <p class="bg-light">مدير الموقع :</p>
-                </div>
-                @endif
-
-                <div class="form-group">
-                    <label for="">تاريخ الانضمام :</label>
-                    <p class="bg-light">{{$user->created_at->format('d m y')}}</p>
-                </div>
-                @if ($extra != null)
-
-                @if ($extra->phone != null)
-                <div class="form-group">
-                    <label for="">رقم الجوال :</label>
-                    <p class="bg-light">{{isset($extra)? $extra->phone: 'لا يوجد'}}</p>
-                </div>
-                @endif
-                @if ($extra->address != null)
-                <div class="form-group">
-                    <label for=""> العنوان :</label>
-                    <p class="bg-light">{{isset($extra)? $extra->address:''}}</p>
-                </div>
-                @endif
-                @if ($extra->study != null)
-                <div class="form-group">
-                    <label for="">التخصص :</label>
-                    <p class="bg-light">{{isset($extra)? $extra->study :''}}</p>
-                </div>
-                @endif
-                @if ($extra->skills != null)
-                    <div class="form-group">
-                        <label for="">المهارات :</label>
-                        @php
-                            $skills = explode('-',isset($extra)? $extra->skills:'');
-                        @endphp
-                        @foreach($skills as $skill)
-                            <span class="bg-light m-1">{{$skill}} </span>
-                        @endforeach
-                    </div>
-                @endif
-
-                @endif <!-- end of extra != null -->
-
-
-            </div>
-            <div class="col-6 d-flex align-items-center justify-content-center">
+    <div class="container px-4">
+        <div class="row">
+            <div class="col-4 bg-white p-3 d-flex justify-content-center personal-image">
                 @if($extra != null)
-                @if($extra->image !=null)
-                    <img src="{{asset('users_image/'.$extra->image)}}" class="rounded-circle wow rollIn" alt="{{$extra->image}}" style="width: 200px;height: 200px;object-fit: cover">
+                @if($extra->image != null)
+                <img src="{{asset('users_image/'.$extra->image)}}" class="img-fluid" alt="{{$extra->image}}">
+                    @else
+                        <img src="http://placehold.it/250" class="img-fluid rounded-top" alt="">
+                    @endif
                 @else
-                <img src="http://placehold.it/200" class="img-fluid rounded-circle wow rollIn " alt="">
-                    @endif
-                    @endif
+                <img src="http://placehold.it/250" class="img-fluid rounded-top" alt="">
+                @endif
             </div>
+            <div class="col-8 bg-white p-3">
+                <div class="d-inline-block" style="width: 100%;">
+                    <h3 class="float-right">{{$user->name}}</h3>
 
+                    @if ($user->id == auth()->user()->id)
+                        <div class="float-left  d-flex justify-content-between">
+                            <a href="{{route('member.edit',auth()->user()->id)}}" class="nav-link btn btn-outline-dark mx-1  ">تعديل الملف الشخصي</a>
+                            <a href="{{route('member.editPassword',auth()->user()->id)}}" class="nav-link btn btn-outline-dark mx-1 ">تعديل كلمة المرور</a>
+                        </div>
 
+                    @endif
 
+                </div>
+                @if($extra != null)
+                @if($extra->bio != null)
+                    <p>{{$extra->bio}}</p>
+                    @endif
+                @endif
 
+            </div>
+            <div class="col-12 bg-white p-3">
+                <table class="table table-bordered text-center">
 
-            @if ($user->id == auth()->user()->id)
-                <a href="{{route('member.edit',auth()->user()->id)}}" class="nav-link btn btn-outline-dark m-2 ">تعديل الملف الشخصي</a>
-                <a href="{{route('member.editPassword',auth()->user()->id)}}" class="nav-link btn btn-outline-dark m-2 ">تعديل كلمة المرور</a>
-            @endif
+                    <tbody>
+                    <tr>
+                        <td>
+                            <i class="fa fa-envelope"></i>
+                             الايميل :
+                            {{$user->email}}</td>
+                        <td>
+                            <i class="fa fa-phone"></i>
+                            {{isset($extra->phone)  ? $extra->phone :'غير متاح'}}
 
+                        </td>
+                        <td>
+                            <i class="fa fa-calendar"></i>
+                            {{isset($user->created_at)  ? $user->created_at->format('d-m-y') :'غير متاح'}}
+                        </td>
+                        <td>
+                            <i class="fa fa-briefcase"></i>
+                            {{isset($extra->work)  ? $extra->work :'غير متاح'}}
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <i class=" fa fa-map-marker"></i>
+                            {{isset($extra->address)  ? $extra->address :'غير متاح'}}
+                        </td>
+                        <td colspan="2">
+                            <i class="fa fa-graduation-cap"></i>
+                            {{isset($extra->study)  ? $extra->study :'غير متاح'}}
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <i class="fa fa-star"></i>
+                            {{isset($extra->skills)  ? $extra->skills :'غير متاح'}}
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
         </div>
     </div>
 
-
 @endsection
+
+
 
 @section('adv')
 
 
-    <div class="card">
+    <div class="card advertisement">
         <img class="card-img" src="http://placehold.it/200" alt="Card image">
         <div class="card-img-overlay">
             <p class="card-text">I'm text that has a background image!</p>
         </div>
     </div>
+
+    <div class="card advertisement mt-2">
+        <img class="card-img" src="http://placehold.it/200" alt="Card image">
+        <div class="card-img-overlay">
+            <p class="card-text">I'm text that has a background image!</p>
+        </div>
+    </div>
+
+
 
 
 

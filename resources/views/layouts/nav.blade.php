@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
     <div class="container">
                         <a class="navbar-brand" href="{{ url('/') }}">
@@ -9,23 +11,53 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav " style="margin-right: auto !important;"> <!-- mr-auto -->
+            <ul class="navbar-nav  justify-content-between " style="margin-right: auto !important; width: 100%;"> <!-- mr-auto -->
                 @guest
-                    <li class="nav-item mx-3">
-                        <a class="btn btn-light" href="{{ route('login') }}">{{ __('تسجيل الدخول ') }}</a>
-                    </li>
-                    @if (Route::has('register'))
+                    <ul class="un-auth-user">
                         <li class="nav-item mx-3">
-                            <a class="btn btn-outline-light" href="{{ route('register') }}">{{ __('انشاء حساب') }}</a>
+                            <a class="btn " href="{{ route('login') }}">{{ __('تسجيل الدخول ') }}</a>
                         </li>
-                    @endif
+                        @if (Route::has('register'))
+                            <li class="nav-item mx-3">
+                                <a class="btn " href="{{ route('register') }}">{{ __('انشاء حساب') }}</a>
+                            </li>
+                        @endif
+                    </ul>
+
                 @else
-                    <li class="nav-item dropdown ">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+
+
+                        <ul class="float-right align-items-center auth-list" >
+                            <li><a href="{{route('home')}}" class="nav-link  p-0 m-0">الصفحة الرئيسية</a></li>
+                            <li><a href="{{route('member.show',auth()->user()->id)}}" class="nav-link  p-0 m-0">الصفحة الشخصية </a></li>
+                            <li><a href="{{route('mypost.create')}}" class="nav-link  p-0 m-0">منشور جديد</a></li>
+
+                        </ul>
+
+
+ <ul class="d-flex align-items-center search-area">
+     <form action="{{route('home')}}" method="get">
+         <div class="input-group">
+             <div class="input-group-prepend">
+                 <button class="btn search-button" type="submit" style="background-color: orangered"><i class="fa fa-search"></i></button>
+             </div>
+             <input type="text" class="form-control" name="search" aria-label="" aria-describedby="basic-addon1" value="{{request('search')}}">
+         </div>
+     </form>
+ </ul>
+
+
+ <li class="nav-item dropdown dropdown-option-list ">
+    <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="font-size: 17px">
+{{--  {{ Auth::user()->name }} <span class="caret"></span>--}}
+        @if($userData != null)
+            @if ($userData->image != null)
+                <img src="{{asset('users_image/'.$userData->image)}}" width="40" class="img-fluid rounded-top" alt="">
+                @endif
+            @else
+            <img src="{{asset('users_image/user-default.png')}}" width="40" class="img-fluid rounded-top" alt="">
+            @endif
                         </a>
-
-
 
                         <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
                             @if (auth()->user()->isAdmin==1)

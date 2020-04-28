@@ -15,6 +15,7 @@
 {{--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">--}}
 {{--    <!-- Markazi Text font include just for persian demo purpose, don't include it in your project -->--}}
 {{--    <link href="https://fonts.googleapis.com/css?family=Cairo&amp;subset=arabic" rel="stylesheet">--}}
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- CSS Files -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{asset('admin/css/material-dashboard-rtl.css')}}" rel="stylesheet" />
@@ -51,6 +52,72 @@
         .bmd-form-group [class^='bmd-label'], .bmd-form-group [class*=' bmd-label']{
             position: relative;
         }
+
+        body {
+            background-color: #F7F8F3;
+        }
+        .auth-list {
+            display: flex;
+        }
+
+        .auth-list li {
+            list-style: none;
+            float: left;
+            margin: 0 5px;
+        }
+
+        .un-auth-user {
+            list-style: none;
+        }
+
+
+        .un-auth-user li {
+            float: right;
+        }
+        .un-auth-user li a {
+           color: white;
+        }
+
+        .un-auth-user li a:hover {
+            color: orangered !important;
+        }
+
+        @media only screen and (min-width: 769px) {
+            .dropdown-option-list{
+                margin-left: 70px;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+
+
+
+            .auth-list {
+                display: block;
+            }
+            .auth-list li {
+                float: initial;
+            }
+
+            .dropdown-option-list{
+                margin-right: 45px;
+            }
+
+            .navbar-dark .navbar-toggler {
+                background-color: orangered;
+            }
+
+            .un-auth-user {
+                display: block;
+            }
+            .un-auth-user li {
+                float: initial;
+            }
+
+
+
+        }
+
     </style>
     @yield('style')
 </head>
@@ -72,7 +139,7 @@
                     @include('admin.layout.errors')
 
                 </div>
-                <div class="col-md-3 justify-content-end mr-sm-5 mt-sm-3 mr-xs-5 ">
+                <div class="col-md-3 justify-content-start mr-sm-2 mr-xs-2">
                     @yield('adv')
                 </div>
             </div>

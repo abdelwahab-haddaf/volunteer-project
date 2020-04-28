@@ -11,7 +11,7 @@ class Post extends Model
     protected $fillable = ['post_type','title','content','address','city_id','user_id'];
     use SoftDeletes;
     public function user(){
-        return $this->belongsTo('App\Models\User','user_id');
+        return $this->belongsTo(User::class);
     }
 
     public function categories(){

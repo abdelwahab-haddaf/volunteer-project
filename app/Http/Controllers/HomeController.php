@@ -24,9 +24,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::with(['user','city'])->orderBy('id','desc')->paginate(30);
+        $posts = Post::with(['user', 'city'])->orderBy('id', 'desc');
+        if ($request->has('search') && $request->get('search')!=''){
+            $posts = $posts->where('title','like','%'.$request->search.'%')
+                ->orWhere('content','like','%'.$request->search.'%');
+        }
+
+        $posts = $posts->paginate(30);
         $adv = Advertisement::orderBy('id','desc')->first();
         return view('home',['posts'=>$posts,'adv'=>$adv]);
     }

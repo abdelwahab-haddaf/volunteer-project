@@ -20,8 +20,14 @@
         .user-name {
             margin-top: 12px;
         }
+
+
 </style>
     @endsection
+
+@section('title')
+الرئيسية
+@endsection
 
 @section('content')
     @foreach($posts as $index=>$post)
@@ -33,19 +39,19 @@
         @endphp
         <div class="card wow {{$class}} mb-2" dir="rtl">
         @php
-            if ($post->post_type==0)
-            $alert = 'danger';
+            if ($post->post_type==1)
+                $bg_color = '#ADDCCA';
             else
-            $alert = 'success';
+                $bg_color = '#FE6F5E';
         @endphp
 
-            <div class="card-header alert alert-{{$alert}} m-0">
+            <div class="card-header m-0" style="background-color: {{$bg_color}}">
                 <h4 class="text-right d-inline"> {{$post->title}}</h4>
 
 
                 @if ($post->user_id==auth()->user()->id)
                     <div class="dropdown float-left">
-                        <button class="btn dropdown-toggle" type="button" id="options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn" type="button" id="options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 {{--                            خيارات--}}
                             <i class="fa fa-chevron-circle-down"></i>
                         </button>
@@ -88,9 +94,9 @@
                 </div>
 
                 <div class="button m-4">
-                    <button type="button" class="btn btn-{{$alert}} mx-2">ارسل رسالة</button>
+                    <button type="button" class="btn mx-2" style="background-color: {{$bg_color}}">ارسل رسالة</button>
 
-                    <a href="{{route('front.showPost',['id'=>$post->id ,'slug'=>str_replace(" ","_",$post->title)])}}" class="btn btn-outline-{{$alert}}">
+                    <a href="{{route('front.showPost',['id'=>$post->id ,'slug'=>str_replace(" ","_",$post->title)])}}" class="btn" style="background-color: {{$bg_color}}">
                     اقرأ المزيد
                     </a>
                 </div>

@@ -9,6 +9,42 @@
             width: 400px;
         }
 
+        .category-list {
+            list-style: none;
+            float: right;
+        }
+        .category-list li {
+            float: right;
+        }
+/*
+ background-color: white;
+            color: #addcca;
+            border-radius: 10px;
+*/
+
+        .category-list li a {
+             @if($post->post_type==1)
+                background-color: #addcca;
+             @else
+                background-color: #FE6F5E;
+             @endif
+            color: white;
+            border-radius: 10px;
+            margin: 0 5px;
+        }
+
+
+        .category-list li a:hover {
+            @if($post->post_type==1)
+            color: #addcca;
+            background-color: white;;
+            @else
+            color: #FE6F5E;
+            background-color: white;;
+            @endif
+border-radius: 10px;
+        }
+
 
         @media only screen and (max-width: 768px) {
 
@@ -33,6 +69,24 @@
         .user-name {
             margin-top: 12px;
         }
+
+
+            @if($post->post_type==0)
+             .card-header h4 {
+                color: black;
+            }
+            .button button , .button a {
+                color: black;
+            }
+            @else
+            .card-header h4 {
+                color: white;
+            }
+        .button button , .button a {
+               color: white;
+        }
+            @endif
+}
     </style>
     @endsection
 
@@ -42,19 +96,19 @@
         <div class="col-12">
             <div class="card mb-2" dir="rtl">
                 @php
-                    if ($post->post_type==0)
-                    $alert = 'danger';
+                    if ($post->post_type==1)
+                    $bg_color = '#ADDCCA';
                     else
-                    $alert = 'success';
+                    $bg_color = '#FE6F5E';
                 @endphp
 
-                <div class="card-header alert alert-{{$alert}} m-0">
+                <div class="card-header m-0" style="background-color: {{$bg_color}};">
                     <h4 class="text-right d-inline"> {{$post->title}}</h4>
 
 
                     @if ($post->user_id==auth()->user()->id)
                         <div class="dropdown float-left">
-                            <button class="btn dropdown-toggle" type="button" id="options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn " type="button" id="options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{--                            خيارات--}}
                                 <i class="fa fa-chevron-circle-down"></i>
                             </button>
@@ -89,12 +143,12 @@
                     </table>
 
                     <div class="content p-4 ">
-                        <p> {{\Illuminate\Support\Str::limit($post->content,100)}} </p>
+                        <p> {{$post->content}} </p>
                     </div>
 
                     <div class="button m-4">
-                        <button type="button" class="btn btn-{{$alert}} mx-2">ارسل رسالة</button>
-                        <a href="#comment-area" class="btn btn-{{$alert}} mx-2">اضافة تعليق</a>
+                        <button type="button" class="btn mx-2" style="background-color: {{$bg_color}};">ارسل رسالة</button>
+                        <a href="#comment-area" class="btn mx-2" style="background-color: {{$bg_color}};">اضافة تعليق</a>
 
                     </div>
                 </div>
@@ -158,13 +212,16 @@
     @endif
 
 
-    <div class="form-group text-right">
+    <div class="form-group align-items-center text-right">
         <div class="row">
-        @foreach($post->categories as $cat)
-            <div class="col-md-3">
-                <span>{{$cat->name}}</span>
-            </div>
-            @endforeach
+            <ul class="category-list">
+                @foreach($post->categories as $cat)
+                        <li>
+                            <a href="" class="nav-link"> {{$cat->name}} </a>
+                        </li>
+                @endforeach
+            </ul>
+
            </div>
         <hr>
 

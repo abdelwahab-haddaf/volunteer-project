@@ -2,77 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c90a477-a178-4fb9-9db5-752657b663e1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/advertisements.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEnd/membersController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEnd/postsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Advertisement.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/usersInformation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_03_24_111725_create_advertisements_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_19_223257_create_user_information_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/css/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/img/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/img/home image.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/js/wow.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/1.jpg_1585053072.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/1585053170-background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/1585053459-HTML.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/1585053473-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/1585053545-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/1585054497-481932-DvBzQ-1539667601-17.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/1585054803-2021-Skoda-Enyaq-1068x601.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/1587337535-6050711.001.1L.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/background.jpg_1585053061.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/background.jpg_1585053119.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1.jpg_1584617053.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1.jpg_1584617148.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1584620564-16295963_376122416078130_1733760198_n.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1587336123-capture20200420014144073.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1587336243-capture20200420014144073.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/advertisements/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/advertisements/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/advertisements/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/advertisements/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front-end/contactUs.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front-end/posts/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front-end/posts/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front-end/posts/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front-end/posts/show2.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front-end/users/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front-end/users/editPassword.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front-end/users/extraInfo.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front-end/users/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/home2.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/welcome2.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/CommentFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/10963d3f71.jpg_1587938322.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/1_0FqDC0_r1f5xFz3IywLYRA.jpeg_1587936354.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/20150615181224.jpg_1587734823.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/Aurora_Blue_Wallpapers_by_rehsup.jpg_1587938014.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/pngtree-man-behind-jail-bars-icon-flat-style-png-image_1835381.jpg_1587734823.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/users_image/1587498889-1_0FqDC0_r1f5xFz3IywLYRA.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/users_image/1587498914-1_0FqDC0_r1f5xFz3IywLYRA.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/users_image/1587502684-capture20200420014144073.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/users_image/user-default.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front-end/users/show2.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/cities.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/cities.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/posts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEnd/membersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEnd/membersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEnd/postsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEnd/postsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/comments.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEnd/commentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/MessageFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/MessageFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/PostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PostFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_23_134026_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_23_134026_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_23_134045_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_23_134045_create_comments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_23_134111_create_messages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_23_134111_create_messages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_23_141716_create_users_information_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ar/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layout/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/messages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/messages/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/usersInformation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/usersInformation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_19_223257_create_user_information_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_19_223257_create_user_information_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/empty.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empty.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front-end/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front-end/posts/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front-end/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front-end/posts/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front-end/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front-end/users/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front-end/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front-end/users/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front-end/posts/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -195,16 +153,16 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="F:/Freelance/Heba" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/front-end/users" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\Volunteer\resources\views\front-end\users" />
+      <recent name="C:\laragon\www\Volunteer\database\factories" />
       <recent name="C:\laragon\www\Volunteer\resources\views\front-end\posts" />
       <recent name="C:\laragon\www\Volunteer\resources\views" />
       <recent name="C:\laragon\www\Volunteer\resources\views\admin" />
-      <recent name="C:\laragon\www\Volunteer\resources\views\layouts" />
-      <recent name="C:\laragon\www\Volunteer\resources\views\front-end\users" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\laragon\www\Volunteer\app" />
@@ -329,6 +287,26 @@
       <workItem from="1585692821740" duration="1771000" />
       <workItem from="1585771261991" duration="412000" />
       <workItem from="1587331887405" duration="5873000" />
+      <workItem from="1587381505601" duration="3319000" />
+      <workItem from="1587386872053" duration="431000" />
+      <workItem from="1587387382060" duration="602000" />
+      <workItem from="1587391535444" duration="1273000" />
+      <workItem from="1587407026217" duration="2075000" />
+      <workItem from="1587419248962" duration="603000" />
+      <workItem from="1587492713338" duration="9833000" />
+      <workItem from="1587575658763" duration="19000" />
+      <workItem from="1587578987017" duration="7000" />
+      <workItem from="1587590942316" duration="6164000" />
+      <workItem from="1587648980202" duration="2102000" />
+      <workItem from="1587652706218" duration="4115000" />
+      <workItem from="1587669789956" duration="463000" />
+      <workItem from="1587679781074" duration="8673000" />
+      <workItem from="1587728704984" duration="4534000" />
+      <workItem from="1587932184945" duration="6870000" />
+      <workItem from="1587982878297" duration="2104000" />
+      <workItem from="1587996137871" duration="8000" />
+      <workItem from="1588020166107" duration="48000" />
+      <workItem from="1588078564638" duration="262000" />
     </task>
     <servers />
   </component>
@@ -368,9 +346,10 @@
     </state>
     <state x="434" y="111" key="FileChooserDialogImpl/0.0.1280.680/1920.0.1366.728@0.0.1280.680" timestamp="1585771634927" />
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1583449578380" />
-    <state x="184" y="7" key="SettingsEditor" timestamp="1583779348266">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="172" y="0" key="SettingsEditor" timestamp="1587670259583">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="172" y="0" key="SettingsEditor/0.0.1280.680/1920.0.1366.728@0.0.1280.680" timestamp="1587670259583" />
     <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1583779348266" />
     <state x="355" y="176" key="com.intellij.ide.util.TipDialog" timestamp="1587331982532">
       <screen x="0" y="0" width="1280" height="680" />
@@ -390,10 +369,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1584999086928" />
-    <state x="324" y="46" width="672" height="634" key="search.everywhere.popup" timestamp="1585618858742">
+    <state x="324" y="46" width="672" height="634" key="search.everywhere.popup" timestamp="1588078816967">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="324" y="46" width="672" height="634" key="search.everywhere.popup/0.0.1280.680/1920.0.1366.728@0.0.1280.680" timestamp="1585618858742" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1585609016154" />
+    <state x="324" y="46" width="672" height="634" key="search.everywhere.popup/0.0.1280.680/1920.0.1366.728@0.0.1280.680" timestamp="1588078816967" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587655401554" />
   </component>
 </project>

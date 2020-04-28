@@ -46,7 +46,8 @@ Route::group(['before' => 'auth'], function () {
     Route::get('post/{id}/{slug?}','homeController@showPost')->name('front.showPost');
     Route::delete('deletePost/{id}','Admin\posts@destroy')->name('front.deletePost');
     Route::resource('mypost','FrontEnd\postsController');
-    Route::post('mypost','Admin\posts@store')->name('mypost.store');
+//    Route::post('mypost','Admin\posts@store')->name('mypost.store');
+//    Route::post('mypost','Admin\posts@update')->name('mypost.update');
 
 //  commentsController routes
     Route::resource('comment','FrontEnd\commentsController');

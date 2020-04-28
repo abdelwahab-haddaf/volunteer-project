@@ -29,6 +29,46 @@ class postsController extends Controller
         return view('front-end.posts.create',['cities'=>$cities,'categories'=>$categories]);
     }
 
+    public function store(Request $request){
+        if ($request->ajax()){
+            $post = $request->validate([
+                'title'=>'required|string',
+                'content'=>'required|string',
+                'address'=>'required|string',
+                'city_id'=>'required|integer',
+                'post_type'=>'required|integer',
+
+            ]);
+
+            $post = ['user_id'=>auth()->user()->id]+$post;
+            $post=  Post::create($post);
+            $post->categories()->sync($request->categories);
+
+
+            $images=array();
+            if ($files = $request->file('images')){
+                foreach($files as $file){
+                    $name = $file->getClientOriginalName().'_'.time().'.'.$file->getClientOriginalExtension();
+                    $file->move('image',$name);
+                    $images[]=$name;
+                }
+
+                Image::insert([
+                    'name'=>implode("|",$images),
+                    'post_id'=>$post->id,
+                    'created_at'=>now(),
+                    'updated_at'=>now(),
+                ]);
+            }
+
+            ////////////end here
+
+//        dd($post);
+            return response(['status'=>true]);
+        }
+
+    }
+
     public function show($id){
 
     }
@@ -36,15 +76,55 @@ class postsController extends Controller
 
     public function edit($id)
     {
-        $post = Post::with('categories')->findOrFail($id);
+        $post = Post::with('categories','user')->findOrFail($id);
         $cities= City::all();
         $categories = Category::all();
-        return view('front-end.posts.edit',['post'=>$post,'cities'=>$cities,'categories'=>$categories]);
+//        return view('front-end.posts.edit',['post'=>$post,'cities'=>$cities,'categories'=>$categories]);
+
+        if ($post->user_id==auth()->user()->id){
+            return view('front-end.posts.edit',['post'=>$post,'cities'=>$cities,'categories'=>$categories]);
+        }
+        else{
+            return back();
+        }
+
     }
+
 
     public function update(Request $request, $id)
     {
-        //
+        if ($request->ajax()){
+        $post = $request->validate([
+            'title'=>'required|string',
+            'content'=>'required|string',
+            'address'=>'required|string',
+            'city_id'=>'required|integer',
+            'post_type'=>'required|integer',
+
+        ]);
+        $post = ['user_id'=>auth()->user()->id]+$post;
+        $post1= Post::findOrfail($id);
+        $post1->update($post);
+        $post1->categories()->sync($request->categories);
+
+        $images=array();
+        if ($files = $request->file('images')){
+            foreach($files as $file){
+                $name = $file->getClientOriginalName().'_'.time().'.'.$file->getClientOriginalExtension();
+                $file->move('image',$name);
+                $images[]=$name;
+            }
+
+            Image::where('post_id',$post->id)->update([
+                'name'=>implode("|",$images),
+                'post_id'=>$post->id,
+                'created_at'=>now(),
+                'updated_at'=>now(),
+            ]);
+        }
+
+            return response(['status'=>true]);
+        }
     }
     public function destroy($id)
     {
