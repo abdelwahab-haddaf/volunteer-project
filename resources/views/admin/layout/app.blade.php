@@ -79,7 +79,7 @@
 
                     @yield('content')
                 @include('admin.layout.session')
-                @include('admin.layout.errors')
+{{--                @include('admin.layout.errors')--}}
 
 
             <footer class="footer">

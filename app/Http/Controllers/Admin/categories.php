@@ -45,7 +45,7 @@ class categories extends Controller
         if ($request->ajax()){
 
             $category = $request->validate([
-                'name'=>'required|string|unique:categories,name',
+                'name'=>'required|string|unique:categories,name,'.$id,
                 'desc'=>'required|string'
             ]);
             Category::findOrfail($id)->update($category);

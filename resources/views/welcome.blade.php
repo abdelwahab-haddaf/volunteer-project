@@ -107,7 +107,7 @@
             }
             .auth-list li {
             float: initial;
-        }
+            }
 
             .un-auth-user {
                 display: block;
@@ -141,14 +141,14 @@
                 text
             </div>
         </div>
-        <div class="col-md-6 p-mt-2 p-0 mt-5">
+        <div class="col-md-6 p-mt-2 p-0 mt-4">
             <img src="{{asset('admin/img/home image.jpg')}}" width="98%" class="img-fluid float-left mb-0 home-image" alt="">
         </div>
 
         <div class="col-12 bg-dark footer">
             <div class="container pt-3 d-flex justify-content-center align-items-center">
                 <ul >
-                    <li><a href="" class="nav-link  p-0 m-0">Lorem.</a></li>
+                    <li><a href="{{route('contact-us')}}" class="nav-link  p-0 m-0">تواصل معنا</a></li>
                     <li><a href="" class="nav-link  p-0 m-0">Quam.</a></li>
                     <li><a href="" class="nav-link  p-0 m-0">Nihil.</a></li>
                 </ul>

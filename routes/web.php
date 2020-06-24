@@ -34,6 +34,11 @@ Route::namespace('admin')->prefix('admin')
     Route::resource('post','posts');
 //  advertisements routes
     Route::resource('advertisement','advertisements');
+// charities routes
+        Route::resource('charity','charities');
+
+// contact us routes
+        Route::resource('contact-us','Admin\contact');
 //  home page routes
     Route::get('home','home@index')->name('admin.dashboard');
     });
@@ -58,12 +63,19 @@ Route::group(['before' => 'auth'], function () {
     Route::put('changePassword/{id}','FrontEnd\membersController@updatePassword')->name('member.updatePassword');
 //  edit extra information for user
     Route::post('updateExtra/{id}','FrontEnd\membersController@updateExtra')->name('member.updateExtra');
+// charity routes
+    Route::resource('charities','Admin\charities');
+
+
+// category route
+Route::get('category/{id}/{slug?}', 'HomeController@categories')->name('front.category');
 
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
+// routes for user contact us
+Route::get('contact-us','Admin\contact@create')->name('contact-us');
+Route::post('contact-us','Admin\contact@store')->name('send-message');
 
 // this page for try functions
 Route::get('empty',function (){

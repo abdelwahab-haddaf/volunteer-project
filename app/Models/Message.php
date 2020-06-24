@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Message extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['message','sender_id','receiver_id','isRead'];
+    protected $fillable = ['message','user_id','isRead'];
 
     public function user(){
         return $this->belongsTo('App\Models\User');

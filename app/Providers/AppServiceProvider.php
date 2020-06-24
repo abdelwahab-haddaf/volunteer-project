@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Charity;
 use App\Models\Message;
 use App\Models\User;
 use App\models\usersInformation;
@@ -25,9 +26,8 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
-        {
+    public function boot(){
+
             $newMessage = Message::where('isRead', '1')->get();
             view()->share('newMessage', $newMessage);
 
@@ -35,13 +35,12 @@ class AppServiceProvider extends ServiceProvider
                 if (Auth::check()){
                     $userData = usersInformation::where('user_id',auth()->user()->id)->first();
                     view()->share('userData', $userData);
+
+                    $myChartity = Charity::where('admin_id',auth()->user()->id)->get();
+                    view()->share('myChartity',$myChartity);
                 }
 
             });
 
-
-
-
-        }
     }
 }

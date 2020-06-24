@@ -30,14 +30,33 @@
 @endsection
 
 @section('content')
+    @if(count($posts) == 0 && request('search') != null)
+        <div class="alert alert-danger text-center">
+            <h3>
+            لا يوجد نتائج لـ
+                <span class="text-dark">
+                    {{ request('search') }}
+                </span>
+            </h3>
+        </div>
+        @elseif(count($posts) == 0 && request('search') == null)
+            <div class="alert alert-danger text-center">
+                <h3>
+                لا يوجد أي منشور بعد
+                </h3>
+            </div>
+
+        @else
     @foreach($posts as $index=>$post)
-        @php
-        if ($index%2==1)
-        $class = 'slideInLeft';
-        else
-        $class = 'slideInRight';
-        @endphp
-        <div class="card wow {{$class}} mb-2" dir="rtl">
+{{--        @php--}}
+{{--        if ($index%2==1)--}}
+{{--        $class = 'slideInLeft';--}}
+{{--        else--}}
+{{--        $class = 'slideInRight';--}}
+{{--        @endphp--}}
+
+{{--wow {{$class}}--}}
+        <div class="card  mb-2" dir="rtl">
         @php
             if ($post->post_type==1)
                 $bg_color = '#ADDCCA';
@@ -71,10 +90,9 @@
                     <thead>
                     <tr>
                         <th>
-{{--                            <span>{{$post->user->id}}</span>--}}
+
                             @if ($post->user->userInfo != null)
                                 <img src="{{asset('users_image/'.$post->user->userInfo->image)}}" class="img-fluid rounded-circle float-right mr-3 user-image" alt="">
-{{--                                <span> {{$post->user->userInfo->image}} </span>--}}
                             @else
                                 <img src="http://placehold.it/50" class="img-fluid rounded-top float-right mr-3" alt="">
 
@@ -107,6 +125,7 @@
 
 
     @endforeach
+    @endif
     <div class="d-flex justify-content-center">
         {{$posts->links()}}
     </div>

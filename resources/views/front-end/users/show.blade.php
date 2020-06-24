@@ -58,7 +58,7 @@
                 </div>
                 @if($extra != null)
                 @if($extra->bio != null)
-                    <p>{{$extra->bio}}</p>
+                    <p>{!!nl2br($extra->bio)!!}</p>
                     @endif
                 @endif
 

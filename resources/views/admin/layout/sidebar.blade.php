@@ -44,6 +44,25 @@
                     </ul>
                 </div>
             </li>
+
+            {{--users list--}}
+            <li class="nav-item {{isActive('charity')}}">
+                <a class="nav-link" href="#charity" data-toggle="collapse" aria-expanded="false">
+{{--                    <i class="material-icons">group</i>--}}
+                    <i class="fa fa-users"></i>
+                    <p> جمعيات </p>
+                </a>
+                <div class="form-group charities collapse" id="charity" >
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a  class="nav-link" href="{{route('charity.index')}}" > عرض</a>
+                            <a  class="nav-link" href="{{route('charity.create')}}"> اضافة</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+
             {{--category list--}}
             <li class="nav-item {{isActive('category')}}">
                 <a class="nav-link" href="#category" data-toggle="collapse" aria-expanded="false">

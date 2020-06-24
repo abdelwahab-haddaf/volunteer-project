@@ -217,7 +217,7 @@ border-radius: 10px;
             <ul class="category-list">
                 @foreach($post->categories as $cat)
                         <li>
-                            <a href="" class="nav-link"> {{$cat->name}} </a>
+                            <a href="{{route('front.category',['id'=>$cat->id ,'slug'=>str_replace(" ","_",$cat->name)] )}}" class="nav-link"> {{$cat->name}} </a>
                         </li>
                 @endforeach
             </ul>

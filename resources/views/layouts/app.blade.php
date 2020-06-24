@@ -82,6 +82,11 @@
             color: orangered !important;
         }
 
+        nav .auth-list li .active-list,
+        .un-auth-user li .active-list{
+            color: orangered !important;
+        }
+
         @media only screen and (min-width: 769px) {
             .dropdown-option-list{
                 margin-left: 70px;
@@ -125,15 +130,17 @@
 <body>
 <div id="app">
     @include('layouts.nav')
-
+    {{--         للاستخدام فقط في الصفحة الرئيسية  --}}
     @yield('home')
     <main class="py-4 text-right">
         <div class="container-fluid">
 
+{{--         للاستخدام فقط في صفحىة تواصل معنا   --}}
+            @yield('contact-us')
             <div class="row">
                 <div class="col-md-8 justify-content-start mr-5">
                     @yield('content')
-                    <div class="alert alert-danger collapse error" style="display: none"> </div>
+{{--                    <div class="alert alert-danger collapse error" style="display: none"> </div>--}}
                     <div class="alert alert-info text-center collapse info" style="display: none">  </div>
                     @include('admin.layout.session')
                     @include('admin.layout.errors')

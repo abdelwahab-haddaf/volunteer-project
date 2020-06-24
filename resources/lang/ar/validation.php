@@ -177,6 +177,7 @@ return [
         'size'                  => 'الحجم',
         'desc'                  => 'الوصف',
         'comment'               => 'التعليق',
-        'current_password'      =>'كلمة المرور الحالية'
+        'current_password'      =>'كلمة المرور الحالية',
+        'message'               =>'حقل الرسالة'
     ],
 ];

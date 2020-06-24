@@ -15,23 +15,25 @@
                 @guest
                     <ul class="un-auth-user">
                         <li class="nav-item mx-3">
-                            <a class="btn " href="{{ route('login') }}">{{ __('تسجيل الدخول ') }}</a>
+                            <a class="btn {{activeList('login')}} " href="{{ route('login') }}">{{ __('تسجيل الدخول ') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item mx-3">
-                                <a class="btn " href="{{ route('register') }}">{{ __('انشاء حساب') }}</a>
+                                <a class="btn {{activeList('register')}} " href="{{ route('register') }}">{{ __('انشاء حساب') }}</a>
                             </li>
                         @endif
+                        <li><a href="{{route('contact-us')}}" class="nav-link {{activeList('contact-us')}} ">تواصل معنا</a></li>
+
                     </ul>
 
                 @else
 
 
                         <ul class="float-right align-items-center auth-list" >
-                            <li><a href="{{route('home')}}" class="nav-link  p-0 m-0">الصفحة الرئيسية</a></li>
-                            <li><a href="{{route('member.show',auth()->user()->id)}}" class="nav-link  p-0 m-0">الصفحة الشخصية </a></li>
-                            <li><a href="{{route('mypost.create')}}" class="nav-link  p-0 m-0">منشور جديد</a></li>
-
+                            <li><a href="{{route('home')}}" class="nav-link {{activeList('home')}}  p-0 m-0">الصفحة الرئيسية</a></li>
+                            <li><a href="{{route('member.show',auth()->user()->id)}}" class="nav-link {{activeList('member')}}  p-0 m-0">الصفحة الشخصية </a></li>
+                            <li><a href="{{route('mypost.create')}}" class="nav-link  {{activeList('mypost')}} p-0 m-0">منشور جديد</a></li>
+                            <li><a href="{{route('contact-us')}}" class="nav-link {{activeList('contact-us')}} p-0 m-0 ">تواصل معنا</a></li>
                         </ul>
 
 
@@ -52,10 +54,10 @@
 {{--  {{ Auth::user()->name }} <span class="caret"></span>--}}
         @if($userData != null)
             @if ($userData->image != null)
-                <img src="{{asset('users_image/'.$userData->image)}}" width="40" class="img-fluid rounded-top" alt="">
+                <img src="{{asset('users_image/'.$userData->image)}}" width="25" height="25" class="img-fluid rounded-top rounded-bottom" alt="">
                 @endif
             @else
-            <img src="{{asset('users_image/user-default.png')}}" width="40" class="img-fluid rounded-top" alt="">
+            <img src="{{asset('users_image/user-default.png')}}" width="25" height="25" class="img-fluid rounded-top rounded-bottom" alt="">
             @endif
                         </a>
 
@@ -67,8 +69,16 @@
 
                             @endif
 
-                                <a class="dropdown-item" href="{{route('mypost.create')}}">
-                                  منشور جديد
+                            @if ($myChartity != null)
+                                @foreach($myChartity as $char)
+                                    <a class="dropdown-item" href="{{route('charity.show',$char->id)}}">
+                                       {{$char->name}}
+                                    </a>
+                                    @endforeach
+                            @endif
+
+                                <a class="dropdown-item" href="{{route('charity.create')}}">
+                                    جمعية جديدة
                                 </a>
 
                                 <a class="dropdown-item" href="{{route('member.show',auth()->user()->id)}}">
