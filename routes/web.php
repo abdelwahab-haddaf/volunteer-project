@@ -29,7 +29,7 @@ Route::namespace('admin')->prefix('admin')
 //  city routes
     Route::resource('city','cities');
 //  messages routes
-    Route::resource('message','messages');
+    Route::resource('message','Contact_Us');
 //  posts routes
     Route::resource('post','posts');
 //  advertisements routes
@@ -37,8 +37,8 @@ Route::namespace('admin')->prefix('admin')
 // charities routes
         Route::resource('charity','charities');
 
-// contact us routes
-        Route::resource('contact-us','Admin\contact');
+// Contact us routes
+        Route::resource('contact-us','Contact_Us');
 //  home page routes
     Route::get('home','home@index')->name('admin.dashboard');
     });
@@ -50,6 +50,9 @@ Route::group(['before' => 'auth'], function () {
 //  front post routes ;
     Route::get('post/{id}/{slug?}','homeController@showPost')->name('front.showPost');
     Route::delete('deletePost/{id}','Admin\posts@destroy')->name('front.deletePost');
+    Route::get('charities/{id}/{slug?}','Admin\charities@show')->name('charities.show');
+
+
     Route::resource('mypost','FrontEnd\postsController');
 //    Route::post('mypost','Admin\posts@store')->name('mypost.store');
 //    Route::post('mypost','Admin\posts@update')->name('mypost.update');
@@ -66,6 +69,8 @@ Route::group(['before' => 'auth'], function () {
 // charity routes
     Route::resource('charities','Admin\charities');
 
+    Route::resource('messages','FrontEnd\Messengers');
+    Route::get('message/{id}','FrontEnd\Messengers@getMessages')->name('getMessages');
 
 // category route
 Route::get('category/{id}/{slug?}', 'HomeController@categories')->name('front.category');
@@ -74,11 +79,17 @@ Route::get('category/{id}/{slug?}', 'HomeController@categories')->name('front.ca
 
 Route::get('/home', 'HomeController@index')->name('home');
 // routes for user contact us
-Route::get('contact-us','Admin\contact@create')->name('contact-us');
-Route::post('contact-us','Admin\contact@store')->name('send-message');
+Route::get('contact-us','Admin\Contact_Us@create')->name('contactUs');
+Route::post('contact-us','Admin\Contact_Us@store')->name('send-message');
+
+
 
 // this page for try functions
+
+Route::post('search','HomeController@search')->name('search-name');
 Route::get('empty',function (){
   return view('empty');
 });
+
+
 

@@ -15,7 +15,11 @@ class charities extends Controller
 
     public function show ($id){
 
-    }
+        $charity = Charity::with(['user'])->findOrFail($id);
+//        dd($charity);
+        return view('front-end.charities.show',['charity'=>$charity]);
+
+   }
 
     public function create (){
     return view('admin.charities.create');

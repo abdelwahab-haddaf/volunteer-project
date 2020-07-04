@@ -1,55 +1,62 @@
 @extends('layouts.app')
 
+@section('title')
+  {{$charity->name}}
+    @endsection
 @section('style')
-
     <style>
 
-
-
-        .content-sub-menu{
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-
-        }
-
-        .show-sub-menu:hover + .content-sub-menu {display: block;}
-
     </style>
-
 @endsection
-@section('content')
-    <div class="container">
-        <div class="form-group">
-            <label for=""></label>
-            <form action="{{route('search-name')}}" method="post" id="search-users">
-                @csrf
-                <input type="text" name="search_name" id="" class="form-control my-2" placeholder="" aria-describedby="helpId">
-                <button class="btn btn-primary" type="submit"> بحث </button>
-            </form>
+
+@section('home')
+
+
+
+<div class="container p-3" style="background-color: #fff">
+    <h3>
+    {{$charity->name}}
+    </h3>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="list-members">
+                <ul style="list-style: none">
+                    <li>
+                        @foreach($charity->user as $user)
+
+                            <a href="{{route('member.show',$user->id)}}" class="nav-link">{{$user->name}}</a>
+                        @endforeach
+
+                    </li>
+                </ul>
+            </div>
 
         </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for=""></label>
+                <form action="{{route('search-name')}}" method="post" id="search-users">
+                    @csrf
+                    <label for="search_name">أدخل اسم للبحث</label>
+                    <input type="text" name="search_name" id="search_name" class="form-control my-2" placeholder="" aria-describedby="helpId">
+                    <button class="btn btn-primary" type="submit"> بحث </button>
+                </form>
 
-        <div class="alert alert-info results" id="results">
-            Result of search
+            </div>
+
+            <div class="alert alert-info results" id="results">
+                Result of search
+
+            </div>
 
         </div>
-
-        <div class="alert alert-danger collapse error" style="display: none">
-
-        </div>
-
-    </div>
-
+</div>
     @endsection
+
+
 
 @section('js')
     <script>
-
-
         $(document).on('submit','#search-users',function (e) {
             e.preventDefault();
             var url = $(this).attr('action'),
@@ -90,10 +97,8 @@
 
                 });
         });
+
     </script>
 
+
 @endsection
-
-
-  </body>
-</html>

@@ -13,7 +13,7 @@
         }
 
         .message-content{
-            height: 400px;
+            min-height: 400px;
             background-color: #ddd;
             z-index: 0;
             margin: 5px;
@@ -35,7 +35,7 @@
     @endsection
 
 
-@section('contact-us')
+@section('oldContact-us')
 
 <div class="container">
 <div class="row main-div d-flex align-items-center ">
@@ -61,15 +61,33 @@
                 <div class="form-message">
                     <form action="{{route('send-message')}}" method="post" id="create">
                         @csrf
-                        <div class="form-group">
-                            <label for="">الاسم</label>
-                            <input type="text" name="name" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                        @guest
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">الاسم</label>
+                                    <input type="text" name="name" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">الايميل</label>
+                                    <input type="email" name="email" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                                </div>
+                            </div>
+
                         </div>
 
-                        <div class="form-group">
-                            <label for="">الايميل</label>
-                            <input type="email" name="email" id="" class="form-control" placeholder="" aria-describedby="helpId">
-                        </div>
+
+                        @endguest
+
+
+                            <div class="form-group">
+                                <label for="">العنوان</label>
+                                <input type="text" name="title" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                            </div>
 
                         <div class="form-group">
                             <label for="">الرسالة </label>
@@ -82,9 +100,15 @@
                         </div>
                     </form>
 
+                    <div class="alert alert-danger collapse error" style="display: none">
+
+                    </div>
+
                 </div>
 
+
             </div>
+
         </div>
 
     </div>
@@ -125,13 +149,12 @@
                         }).show();
 
                     },
-                    error: function (xhr) {
-
+                    error: function (response , error) {
                         $('.error').show();
-                        console.log((xhr.responseJSON.error));
+                        // console.table(response);
+                        // console.log(error);
                         $('.error').html('');
-
-                        $.each(xhr.responseJSON.errors, function(key,value) {
+                        $.each(response.responseJSON.errors, function(key,value) {
                             $('.error').append('<li>'+value+'</li>');
                         });
                     }

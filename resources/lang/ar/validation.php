@@ -178,6 +178,7 @@ return [
         'desc'                  => 'الوصف',
         'comment'               => 'التعليق',
         'current_password'      =>'كلمة المرور الحالية',
-        'message'               =>'حقل الرسالة'
+        'message'               =>'حقل الرسالة',
+        'search_name'               =>'حقل الاسم',
     ],
 ];

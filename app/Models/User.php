@@ -45,12 +45,20 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Post','user_id');
     }
 
-    public function messages(){
-        return $this->hasMany(Message::class);
+    public function contact_us(){
+        return $this->hasMany(ContactUs::class);
     }
 
     public function userInfo(){
         return $this->hasOne(usersInformation::class);
+    }
+
+    public function charity(){
+        return $this->hasMany(Charity::class);
+    }
+
+    public function messenger(){
+        return $this->hasMany(Messenger::class,'user_id');
     }
 
 }

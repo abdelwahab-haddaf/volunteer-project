@@ -148,7 +148,7 @@
         <div class="col-12 bg-dark footer">
             <div class="container pt-3 d-flex justify-content-center align-items-center">
                 <ul >
-                    <li><a href="{{route('contact-us')}}" class="nav-link  p-0 m-0">تواصل معنا</a></li>
+                    <li><a href="{{route('contactUs')}}" class="nav-link  p-0 m-0">تواصل معنا</a></li>
                     <li><a href="" class="nav-link  p-0 m-0">Quam.</a></li>
                     <li><a href="" class="nav-link  p-0 m-0">Nihil.</a></li>
                 </ul>

@@ -6,7 +6,9 @@ use App\Models\Advertisement;
 use App\Models\Category;
 use App\models\Image;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -58,5 +60,26 @@ class HomeController extends Controller
     }
 
 
+
+
+    /*  Empty   */
+
+
+
+    public function search(Request $request)
+    {
+        if ($request->ajax()) {
+            $users = $request->validate([
+                'search_name'=>'required|string',
+            ]);
+            if ($request->search_name != null) {
+
+                $users = User::where('name', 'like', '%' . $request->search_name . '%')->get();
+                return response()->json(['status'=>true ,'users' => $users]);
+
+            }
+        }
+
+    }
 
 }

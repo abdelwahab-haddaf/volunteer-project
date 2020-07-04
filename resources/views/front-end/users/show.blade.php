@@ -114,8 +114,6 @@
 
 @endsection
 
-
-
 @section('adv')
 
 
@@ -132,9 +130,6 @@
             <p class="card-text">I'm text that has a background image!</p>
         </div>
     </div>
-
-
-
 
 
 @endsection

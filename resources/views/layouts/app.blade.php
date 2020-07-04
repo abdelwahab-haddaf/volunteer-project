@@ -136,14 +136,14 @@
         <div class="container-fluid">
 
 {{--         للاستخدام فقط في صفحىة تواصل معنا   --}}
-            @yield('contact-us')
+            @yield('oldContact-us')
             <div class="row">
                 <div class="col-md-8 justify-content-start mr-5">
                     @yield('content')
 {{--                    <div class="alert alert-danger collapse error" style="display: none"> </div>--}}
                     <div class="alert alert-info text-center collapse info" style="display: none">  </div>
                     @include('admin.layout.session')
-                    @include('admin.layout.errors')
+{{--                    @include('admin.layout.errors')--}}
 
                 </div>
                 <div class="col-md-3 justify-content-start mr-sm-2 mr-xs-2">

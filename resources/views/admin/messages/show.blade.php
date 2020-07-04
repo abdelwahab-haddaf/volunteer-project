@@ -13,8 +13,12 @@
 
         <div class="form-group" dir="rtl">
             <label for="">اسم المرسل : </label>
-            <span class="text-info">{{$message->user->name}}</span>
+            @if($message->user_id ==0)
+                <span class="text-info">{{$message->name}}</span>
 
+            @else
+            <span class="text-info">{{$message->user->name}}</span>
+                @endif
         </div>
 
         <div class="form-group">

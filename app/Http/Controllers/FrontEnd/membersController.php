@@ -4,6 +4,7 @@ namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\Messenger;
 use App\Models\User;
 use App\models\usersInformation;
 use Illuminate\Http\Request;
@@ -149,19 +150,17 @@ class membersController extends Controller
         }
 
 
-
-
     public function show($id){
     $user = User::findOrFail($id);
     $extraInfo = usersInformation::where('user_id',$id)->first();
             return view('front-end.users.show',['user'=>$user,'extra'=>$extraInfo]);
     }
 
-
-
     public function destroy($id){
 
     }
+
+
 
 //    public function try($id){
 //        $user = usersInformation::where('user_id',$id)->first();

@@ -22,7 +22,7 @@
                                 <a class="btn {{activeList('register')}} " href="{{ route('register') }}">{{ __('انشاء حساب') }}</a>
                             </li>
                         @endif
-                        <li><a href="{{route('contact-us')}}" class="nav-link {{activeList('contact-us')}} ">تواصل معنا</a></li>
+                        <li><a href="{{route('contactUs')}}" class="nav-link {{activeList('contact-us')}} ">تواصل معنا</a></li>
 
                     </ul>
 
@@ -33,7 +33,7 @@
                             <li><a href="{{route('home')}}" class="nav-link {{activeList('home')}}  p-0 m-0">الصفحة الرئيسية</a></li>
                             <li><a href="{{route('member.show',auth()->user()->id)}}" class="nav-link {{activeList('member')}}  p-0 m-0">الصفحة الشخصية </a></li>
                             <li><a href="{{route('mypost.create')}}" class="nav-link  {{activeList('mypost')}} p-0 m-0">منشور جديد</a></li>
-                            <li><a href="{{route('contact-us')}}" class="nav-link {{activeList('contact-us')}} p-0 m-0 ">تواصل معنا</a></li>
+                            <li><a href="{{route('contactUs')}}" class="nav-link {{activeList('contact-us')}} p-0 m-0 ">تواصل معنا</a></li>
                         </ul>
 
 
@@ -71,8 +71,9 @@
 
                             @if ($myChartity != null)
                                 @foreach($myChartity as $char)
-                                    <a class="dropdown-item" href="{{route('charity.show',$char->id)}}">
-                                       {{$char->name}}
+                                    <a class="dropdown-item" href="{{route('charities.show',$char->id)}}">
+
+                                        {{$char->name}}
                                     </a>
                                     @endforeach
                             @endif

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Charity;
+use App\Models\ContactUs;
 use App\Models\Message;
 use App\Models\User;
 use App\models\usersInformation;
@@ -28,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(){
 
-            $newMessage = Message::where('isRead', '1')->get();
+            $newMessage = ContactUs::where('isRead', '1')->get();
             view()->share('newMessage', $newMessage);
 
             view()->composer('*', function ($view) {

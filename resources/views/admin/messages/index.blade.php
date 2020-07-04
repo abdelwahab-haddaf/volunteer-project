@@ -28,7 +28,8 @@
                 @if ($message->isRead==0)
                     <tr class="wow slideInUp">
                         <td>{{$message->id}}</td>
-                        <td><a href="{{route('user.show',$message->user->id)}}"> {{$message->user->name}} </a> </td>
+{{--                        <td><a href="{{route('user.show',$message->user->id)}}"> {{$message->user->name}} </a> </td>--}}
+                        <td><a href="{{route('user.show',$message->name)}}"> {{$message->name}} </a> </td>
                         <td>
                             <a href="{{route('message.show',$message->id)}}" class="text-primary">   {{ \Illuminate\Support\Str::limit($message->message, 50, $end='...') }}</a>
                         </td>
@@ -44,7 +45,7 @@
                 @else
                 <tr class="wow slideInUp" style="background-color: #c9c6c6;">
                     <td>{{$message->id}}</td>
-                    <td><a href="{{route('user.show',$message->user->id)}}"> {{$message->user->name}} </a> </td>
+                    <td><a href="{{route('user.show',$message->id)}}"> {{$message->name}} </a> </td>
                     <td>
                         <a href="{{route('message.show',$message->id)}}" class="text-primary" onclick="read()">   {{ \Illuminate\Support\Str::limit($message->message, 50, $end='...') }}</a>
                     </td>
