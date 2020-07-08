@@ -19,17 +19,35 @@
     </h3>
     <div class="row">
         <div class="col-md-8">
-            <div class="list-members">
-                <ul style="list-style: none">
-                    <li>
-                        @foreach($charity->user as $user)
+          <div class="row">
+              <div class="col-md-8">
+                  <div class="desc" style="padding-right: 40px;">
+                      <p>عن الجمعية</p>
+                      <p> {{$charity->desc}} </p>
+                  </div>
+                  <div class="list-members">
+                      <ul style="list-style: none">
+                          <li>
+                              <label class="d-inline">مدير الجمعية :</label>
+                              <a href="{{route('member.show',$charity->admin->id)}}" class="nav-link d-inline">{{$charity->admin->name}}</a>
 
-                            <a href="{{route('member.show',$user->id)}}" class="nav-link">{{$user->name}}</a>
-                        @endforeach
+                          </li>
 
-                    </li>
-                </ul>
-            </div>
+                          <span> قائمة الأعضاء : </span>
+                          <li>
+                              @foreach($charity->user as $user)
+
+                                  <a href="{{route('member.show',$user->id)}}" class="nav-link d-inline-block">{{$user->name}}</a>
+                              @endforeach
+
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <img src="http://placehold.it/200" class="img-fluid rounded-top" alt="">
+              </div>
+          </div>
 
         </div>
         <div class="col-md-3">
@@ -44,8 +62,8 @@
 
             </div>
 
-            <div class="alert alert-info results" id="results">
-                Result of search
+            <div class="alert alert-info results collapse" id="results">
+               نتيجة البحث
 
             </div>
 
@@ -76,6 +94,7 @@
                         $('.error').empty();
                     },
                     success: function (response) {
+                        $('.results').show();
                         var data = "" ;
                         $.each(response.users , function () {
                             data+= '<div value=" '+this.id+'">' + this.name + '</div>';

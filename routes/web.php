@@ -50,7 +50,9 @@ Route::group(['before' => 'auth'], function () {
 //  front post routes ;
     Route::get('post/{id}/{slug?}','homeController@showPost')->name('front.showPost');
     Route::delete('deletePost/{id}','Admin\posts@destroy')->name('front.deletePost');
-    Route::get('charities/{id}/{slug?}','Admin\charities@show')->name('charities.show');
+
+
+
 
 
     Route::resource('mypost','FrontEnd\postsController');
@@ -68,19 +70,32 @@ Route::group(['before' => 'auth'], function () {
     Route::post('updateExtra/{id}','FrontEnd\membersController@updateExtra')->name('member.updateExtra');
 // charity routes
     Route::resource('charities','Admin\charities');
+    Route::get('charities/{id}/{slug?}','Admin\charities@show')->name('charities.show');
 
-    Route::resource('messages','FrontEnd\Messengers');
-    Route::get('message/{id}','FrontEnd\Messengers@getMessages')->name('getMessages');
 
-// category route
+    Route::post('charities/{charity_id}/{user_id}','Admin\charities@addMember')->name('addMember');
+    Route::delete('charities/{charity_id}/{user_id}','Admin\charities@removeMember')->name('removeMember');
+
+
+
+    // category route
 Route::get('category/{id}/{slug?}', 'HomeController@categories')->name('front.category');
 
 });
-
+// routes for home page
 Route::get('/home', 'HomeController@index')->name('home');
+
+
 // routes for user contact us
 Route::get('contact-us','Admin\Contact_Us@create')->name('contactUs');
 Route::post('contact-us','Admin\Contact_Us@store')->name('send-message');
+
+
+// routes for user messages
+Route::resource('messages','FrontEnd\Messages');
+Route::get('message/{id}','FrontEnd\Messages@getMessages')->name('getMessages');
+
+
 
 
 
@@ -88,7 +103,8 @@ Route::post('contact-us','Admin\Contact_Us@store')->name('send-message');
 
 Route::post('search','HomeController@search')->name('search-name');
 Route::get('empty',function (){
-  return view('empty');
+    $users = \App\Models\User::all();
+  return view('empty',['users'=>$users]);
 });
 
 

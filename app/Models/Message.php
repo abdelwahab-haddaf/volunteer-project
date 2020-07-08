@@ -11,7 +11,12 @@ class Message extends Model
     protected $fillable = ['content','chat_id','user_id','isRead'];
 
     public function user(){
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
+    }
+
+
+    public function chat(){
+        return $this->belongsTo(Chat::class,'chat_id');
     }
 
 }

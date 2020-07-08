@@ -8,7 +8,12 @@ class Charity extends Model
 {
     protected $fillable = ['name','desc','admin_id'];
 
+
     public function user(){
         return $this->belongsToMany(User::class,'charity_user');
+    }
+
+    public function admin(){
+        return $this->belongsTo(User::class,'user_id');
     }
 }

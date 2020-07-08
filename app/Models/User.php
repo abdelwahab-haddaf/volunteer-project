@@ -54,11 +54,9 @@ class User extends Authenticatable
     }
 
     public function charity(){
-        return $this->hasMany(Charity::class);
+        return $this->belongsToMany(Charity::class,'charity_user');
     }
 
-    public function messenger(){
-        return $this->hasMany(Messenger::class,'user_id');
-    }
+
 
 }

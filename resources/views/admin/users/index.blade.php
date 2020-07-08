@@ -44,14 +44,7 @@
                         @endif
                     </td>
 
-                    <td>
-                        <form action="{{route('user.destroy',$user->id)}}" method="post" id="delete">
-                            @csrf
-                            @method('delete')
 
-                            <button type="submit" class="btn btn-danger btn-sm mt-4 delete">حذف</button>
-                        </form>
-                    </td>
                 </tr>
             @endforeach
 

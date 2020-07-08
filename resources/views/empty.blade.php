@@ -23,24 +23,33 @@
 @endsection
 @section('content')
     <div class="container">
-        <div class="form-group">
-            <label for=""></label>
-            <form action="{{route('search-name')}}" method="post" id="search-users">
-                @csrf
-                <input type="text" name="search_name" id="" class="form-control my-2" placeholder="" aria-describedby="helpId">
-                <button class="btn btn-primary" type="submit"> بحث </button>
-            </form>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>الاسم</th>
+                <th>خيارات</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($users as $user)
+                <tr>
+                    <td>{{$user->id}}</td>
+                    <td>{{$user->name}}</td>
+                    <td>
+                        <form action="{{route('addMember',['user_id'=>$user->id ,'charity_id'=>'1'])}}" method="post" id="addMember">
+                            @csrf
+                            <button type="submit" class="btn btn-primary addMemberButton ">اضافة</button>
 
-        </div>
+                        </form>
 
-        <div class="alert alert-info results" id="results">
-            Result of search
+                    </td>
 
-        </div>
 
-        <div class="alert alert-danger collapse error" style="display: none">
-
-        </div>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
 
     </div>
 
@@ -49,9 +58,60 @@
 @section('js')
     <script>
 
-
-        $(document).on('submit','#search-users',function (e) {
+        $(document).on('submit','#addMember',function (e) {
             e.preventDefault();
+            var that = $(this);
+            var url = $(this).attr('action'),
+                request = $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN':$('input[name="_token"]').val()
+                    },
+                    url:url,
+                    method:"post",
+                    data: new FormData(this),
+                    dataType:"json",
+                    cache:false,
+                    contentType:false,
+                    processData:false,
+                    beforeSend:function () {
+                        $('.error').hide();
+                        $('.error').empty();
+                    },
+                    //success when set new admin
+                    success: function (response) {
+
+                        that.children('button').attr("class","btn btn-outline-danger btn-sm mt-4 removeMemberButton");
+                        that.children('button').attr("id","removeMemberButton");
+                        that.children('button').html('إزالة العضو');
+                        that.attr("id","removeMember");
+                        that.attr("action",response.url);
+
+                        new Noty({
+                            type:'success',
+                            layout:'bottomCenter',
+                            text:"تم اضافة عضو جديد بنجاح",
+                            timeout:5000,
+                            killer: true,
+                        }).show();
+
+                    },
+                    error: function (xhr) {
+                        $('.error').show();
+                        console.log((xhr.responseJSON.errors));
+                        $('.error').html('');
+
+                        $.each(xhr.responseJSON.errors, function(key,value) {
+                            $('.error').append('<li>'+value+'</li>');
+                        });
+                    }
+
+                });
+
+        });
+
+        $(document).on('submit','#removeMember',function (e) {
+            e.preventDefault();
+            var that = $(this);
             var url = $(this).attr('action'),
                 request = $.ajax({
                     headers: {
@@ -69,27 +129,35 @@
                         $('.error').empty();
                     },
                     success: function (response) {
-                        var data = "" ;
-                        $.each(response.users , function () {
-                            data+= '<div value=" '+this.id+'">' + this.name + '</div>';
-                        });
 
-                        $("#results").html(data);
+                        new Noty({
+                            type:'success',
+                            layout:'bottomCenter',
+                            text:"تم حذف العضو بنجاح",
+                            timeout:5000,
+                            killer: true,
+                        }).show();
 
+                        that.children('button').attr("class","btn btn-outline-primary btn-sm mt-4 addMemberButton");
+                        that.children('button').attr("id","addMemberButton");
+                        that.children('button').html('اضافة عضو');
+                        that.attr("id","addMember");
+                        that.attr("action",response.url);
                     },
-
-                    error: function (response , error) {
+                    error: function (xhr) {
                         $('.error').show();
-                        // console.table(response);
-                        // console.log(error);
+                        console.log((xhr.responseJSON.errors));
                         $('.error').html('');
-                        $.each(response.responseJSON.errors, function(key,value) {
+
+                        $.each(xhr.responseJSON.errors, function(key,value) {
                             $('.error').append('<li>'+value+'</li>');
                         });
                     }
 
                 });
+
         });
+
     </script>
 
 @endsection

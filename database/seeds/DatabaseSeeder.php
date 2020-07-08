@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PostSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(ContactUsSeeder::class);
-
+        $this->call(ChatSeeder::class);
 
     }
 }

@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
                     $userData = usersInformation::where('user_id',auth()->user()->id)->first();
                     view()->share('userData', $userData);
 
-                    $myChartity = Charity::where('admin_id',auth()->user()->id)->get();
+                    $myChartity = Charity::where('user_id',auth()->user()->id)->get();
                     view()->share('myChartity',$myChartity);
                 }
 

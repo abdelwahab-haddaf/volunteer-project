@@ -39,19 +39,17 @@
                 <div class="col-3 users-list p-0 border">
 
 
-                    @foreach($messages as $message)
+                    @foreach($chat as $user)
                         <div class=" border p-1 user text-right">
-                            <a href="{{route('getMessages',$message->receiver_id)}}">
-
+                            <a href="{{route('getMessages',$user->id)}}">
                                 <img src="http://placehold.it/40" alt="" class="rounded-circle">
                                 <span class="m-1 mb-0">
-                        {{$message->user->name}}
+                        {{$user->user1->name}}
                         </span>
                                 <span class="mx-2 text-secondary float-left">time</span>
                             </a>
                         </div>
                     @endforeach
-
 
 
                 </div>
