@@ -62,20 +62,18 @@
                         </div>
 
                         @foreach($messages as $message)
-                            @if(isset($receiver_id))
-                            @if($message->user_id == auth()->user()->id && $message->receiver_id== $receiver_id )
-                                <p class="float-left m-2 text-left">
+                            @if($message->user_id == auth()->user()->id )
+                                <p class="float-left m-2 text-left clearfix">
                        <span class="bg-info text-white p-2">
-                            {{$message->message_content}}
+                            {{$message->content}}
                        </span>
                                 </p>
-                            @elseif($message->receiver_id == auth()->user()->id && $message->user_id == $receiver_id)
-                                <p class="float-right m-2  text-right ">
+                            @else
+                                <p class="float-right m-2  text-right clearfix">
                            <span class="bg-light p-2">
-                                {{$message->message_content}}
+                                {{$message->content}}
                            </span>
                                 </p>
-                            @endif
                             @endif
 
                         @endforeach
@@ -90,7 +88,7 @@
                     <form action="">
                         <div class="form-group justify-content-center message-form ">
                             <label for="message-text"></label>
-                            <textarea name="message-text" id="message-text" class="form-control mr-4 message-text" ></textarea>
+                            <textarea name="message_content" id="message-text" class="form-control mr-4 message-text" ></textarea>
                             <button type="submit" class="btn btn-primary float-right mt-2 mr-4"> ارسال</button>
                         </div>
                     </form>
