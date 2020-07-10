@@ -76,7 +76,7 @@ class Messages extends Controller
         $user_id = auth()->user()->id;
 
         $messages = $chat_selected->message ; //Message::with(['user'])->where('user_id',$user_id)->get();
-        return view('front-end.users.messages',['messages'=>$messages,'chat'=>$chat]);
+        return view('front-end.users.messages',['messages'=>$messages,'chat'=>$chat ,'chat_id' => $id]);
 
     }
 
