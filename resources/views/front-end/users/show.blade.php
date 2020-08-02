@@ -33,15 +33,13 @@
     <div class="container px-4">
         <div class="row">
             <div class="col-4 bg-white p-3 d-flex justify-content-center personal-image">
-                @if($extra != null)
-                @if($extra->image != null)
-                <img src="{{asset('users_image/'.$extra->image)}}" class="img-fluid" alt="{{$extra->image}}">
+
+                @if(auth()->user()->image != null)
+                <img src="{{asset('users_image/'.auth()->user()->image)}}" class="img-fluid" alt="{{auth()->user()->image}}">
                     @else
                         <img src="http://placehold.it/250" class="img-fluid rounded-top" alt="">
                     @endif
-                @else
-                <img src="http://placehold.it/250" class="img-fluid rounded-top" alt="">
-                @endif
+
             </div>
             <div class="col-8 bg-white p-3">
                 <div class="d-inline-block" style="width: 100%;">

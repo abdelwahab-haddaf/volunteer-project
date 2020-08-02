@@ -67,11 +67,13 @@ Route::group(['before' => 'auth'], function () {
 // charity routes
     Route::resource('charities', 'Admin\charities');
     Route::get('charities/{id}/{slug?}', 'Admin\charities@show')->name('charities.show');
+    Route::get('charities-edit/{id}/{slug?}', 'Admin\charities@editFromUser')->name('editFromUser');
+    Route::get('charity/{id}/members','Admin\charities@displayMembers')->name('displayMembers');
+    Route::get('charity/{id}/posts','Admin\charities@displayPosts')->name('displayPosts');
 
-
-    Route::post('charities/{charity_id}/{user_id}', 'Admin\charities@addMember')->name('addMember');
+    Route::post('addMember', 'Admin\charities@addMember')->name('addMember');
     Route::delete('charities/{charity_id}/{user_id}', 'Admin\charities@removeMember')->name('removeMember');
-
+    Route::post('search', 'Admin\charities@search')->name('search-name');
 
     // category route
     Route::get('category/{id}/{slug?}', 'HomeController@categories')->name('front.category');
@@ -93,7 +95,7 @@ Route::get('message/{id}', 'FrontEnd\Messages@getMessages')->name('getMessages')
 
 // this page for try functions
 
-Route::post('search', 'HomeController@search')->name('search-name');
+//Route::post('search', 'HomeController@search')->name('search-name');
 Route::get('empty', function () {
     $users = \App\Models\User::all();
     return view('empty', ['users' => $users]);

@@ -28,10 +28,10 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot(){
-
+/*
             $newMessage = ContactUs::where('isRead', '1')->get();
             view()->share('newMessage', $newMessage);
-
+*/
             view()->composer('*', function ($view) {
                 if (Auth::check()){
                     $userData = usersInformation::where('user_id',auth()->user()->id)->first();

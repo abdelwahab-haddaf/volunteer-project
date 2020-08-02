@@ -31,16 +31,25 @@ class postsController extends Controller
 
     public function store(Request $request){
         if ($request->ajax()){
+
             $post = $request->validate([
                 'title'=>'required|string',
                 'content'=>'required|string',
                 'address'=>'required|string',
                 'city_id'=>'required|integer',
                 'post_type'=>'required|integer',
-
             ]);
+            if ($request->has('user_type')){
+                $post['charity_id'] = $request->charity_id;
+                $post+= $post['charity_id'];
+            }
+            else{
+                $post['charity_id']=null;
+            }
 
             $post = ['user_id'=>auth()->user()->id]+$post;
+
+
             $post=  Post::create($post);
             $post->categories()->sync($request->categories);
 
@@ -63,7 +72,7 @@ class postsController extends Controller
 
             ////////////end here
 
-//        dd($post);
+
             return response(['status'=>true]);
         }
 

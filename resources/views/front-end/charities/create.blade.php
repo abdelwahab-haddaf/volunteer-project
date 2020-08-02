@@ -30,6 +30,11 @@
             <textarea name="desc" class="form-control" id="desc" style="width: 100%; height: 220px; resize: none"></textarea>
         </div>
 
+        <div class="form-group">
+            <label for="">الصورة الشخصية</label>
+            <input type="file" class="form-control-file" name="image" id="image" placeholder="" aria-describedby="fileHelpId">
+            <small id="fileHelpId" class="form-text text-muted">الصورة الشخصية يجب ان تكون من نوع jpeg,jpg,png</small>
+        </div>
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary">انشاء</button>
@@ -87,7 +92,9 @@
                 });
 
         });
-// */
+
+
+
 
     </script>
 

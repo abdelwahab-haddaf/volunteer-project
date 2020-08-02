@@ -4,7 +4,6 @@ namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
-use App\Models\Messenger;
 use App\Models\User;
 use App\models\usersInformation;
 use Illuminate\Http\Request;
@@ -83,12 +82,17 @@ class membersController extends Controller
             'study'=>'nullable|string',
             'profile_image'=>'nullable|image|mimes:jpg,jpeg,png|max:4096',
         ]);
-        if ($image = $request->file('profile_image')){
-//            $imageName = $image->getClientOriginalName().'-'.time().'-';
-            $imageName = time().'-'.$image->getClientOriginalName();
 
+//        $image_profile = $request->validate([
+//            'profile_image'=>'nullable|image|mimes:jpg,jpeg,png|max:4096',
+//        ]);
+//        dd($image);
+        if ($image = $request->file('profile_image')){
+//          $imageName = $image->getClientOriginalName().'-'.time().'-';
+            $imageName = time().'-'.$image->getClientOriginalName();
             $image->move('users_image',$imageName);
-            $data['image'] = $imageName;
+            $user = User::where('id',$id)->first();
+            $user->update(['image'=>$imageName]);
         }
 
         $data=$data+['user_id'=>$id];

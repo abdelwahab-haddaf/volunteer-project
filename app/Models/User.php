@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','isAdmin',
+        'name', 'email', 'password','isAdmin','image',
     ];
 
     /**
@@ -44,6 +44,7 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany('App\Models\Post','user_id');
     }
+
 
     public function contact_us(){
         return $this->hasMany(ContactUs::class);

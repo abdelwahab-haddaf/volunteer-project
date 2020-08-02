@@ -121,7 +121,7 @@
                         new Noty({
                             type:'success',
                             layout:'bottomCenter',
-                            text:"تم نشر البيانات بنجاح",
+                            text:"تم نشر المنشور",
                             timeout:5000,
                             killer: true,
                         }).show();

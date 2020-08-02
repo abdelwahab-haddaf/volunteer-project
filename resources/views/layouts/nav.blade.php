@@ -52,10 +52,10 @@
  <li class="nav-item dropdown dropdown-option-list ">
     <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="font-size: 17px">
 {{--  {{ Auth::user()->name }} <span class="caret"></span>--}}
-        @if($userData != null)
-            @if ($userData->image != null)
-                <img src="{{asset('users_image/'.$userData->image)}}" width="25" height="25" class="img-fluid rounded-top rounded-bottom" alt="">
-                @endif
+
+            @if (auth()->user()->image != null)
+                <img src="{{asset('users_image/'.auth()->user()->image)}}" width="25" height="25" class="img-fluid rounded-top rounded-bottom" alt="">
+
             @else
             <img src="{{asset('users_image/user-default.png')}}" width="25" height="25" class="img-fluid rounded-top rounded-bottom" alt="">
             @endif

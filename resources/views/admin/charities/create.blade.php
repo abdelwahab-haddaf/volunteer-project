@@ -1,23 +1,23 @@
 @extends('layouts.app')
 
 @section('title')
-   انشاء جمعية جديدة
-    @endsection
+    انشاء جمعية جديدة
+@endsection
 
 
 @section('content')
 
-    @section('style')
-        <style>
+@section('style')
+    <style>
 
-        </style>
-        @endsection
+    </style>
+@endsection
 
 <div class="container p-3" style="background-color: #fff">
     <h3>
         إنشاء جمعية جديدة
     </h3>
-    <form action="{{route('charity.store')}}" enctype="multipart/form-data"  method="post" id="create">
+    <form action="{{route('charities.store')}}" enctype="multipart/form-data"  method="post" id="create">
         @csrf
 
         <div class="form-group" dir="rtl">
@@ -30,6 +30,11 @@
             <textarea name="desc" class="form-control" id="desc" style="width: 100%; height: 220px; resize: none"></textarea>
         </div>
 
+        <div class="form-group">
+            <label for="">الصورة الشخصية</label>
+            <input type="file" class="form-control-file" name="image" id="image" placeholder="" aria-describedby="fileHelpId">
+            <small id="fileHelpId" class="form-text text-muted">الصورة الشخصية يجب ان تكون من نوع jpeg,jpg,png</small>
+        </div>
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary">انشاء</button>
@@ -40,12 +45,12 @@
 
     </div>
 </div>
-    @endsection
+@endsection
 
 @section('js')
     <script>
 
-         $(document).on('submit','#create',function (e) {
+        $(document).on('submit','#create',function (e) {
             e.preventDefault();
             var url = $(this).attr('action'),
                 request = $.ajax({
@@ -87,7 +92,9 @@
                 });
 
         });
-// */
+
+
+
 
     </script>
 

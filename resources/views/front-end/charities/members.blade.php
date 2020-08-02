@@ -85,8 +85,8 @@
         </div>
         <div class="col-3 sidebar">
             <ul>
-                <li><a href="" class="nav-link"> الأعضاء</a></li>
-                <li><a href="" class="nav-link">المنشورات</a></li>
+                <li><a href="{{route('displayMembers',$charity->id)}}" class="nav-link"> الأعضاء</a></li>
+                <li><a href="{{route('displayPosts',$charity->id)}}" class="nav-link">المنشورات</a></li>
                 <li><a href="{{route('editFromUser',$charity->id)}}" class="nav-link">تعديل</a></li>
             </ul>
 

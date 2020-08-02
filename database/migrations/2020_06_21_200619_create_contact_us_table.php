@@ -15,13 +15,12 @@ class CreateContactUsTable extends Migration
     {
         Schema::create('contact_us', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->string('name');
+            $table->string('name', 100);
             $table->string('email');
             $table->string('title');
+            $table->integer('user_id');
+            $table->integer('isRead')->default(1);
             $table->text('message');
-            $table->tinyInteger('isRead')->default(1);
-            $table->softDeletes();
             $table->timestamps();
         });
     }

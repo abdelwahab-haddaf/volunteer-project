@@ -125,14 +125,14 @@ border-radius: 10px;
                         <tr>
                             <th>
                                 {{--                            <span>{{$post->user->id}}</span>--}}
-                                @if ($post->user->userInfo != null)
-                                    <img src="{{asset('users_image/'.$post->user->userInfo->image)}}" class="img-fluid rounded-circle float-right mr-3 user-image" alt="">
+                                @if ($post->user->image != null)
+                                    <img src="{{asset('users_image/'.$post->user->image)}}" class="img-fluid rounded-circle float-right mr-3 user-image" alt="">
                                     {{--                                <span> {{$post->user->userInfo->image}} </span>--}}
                                 @else
                                     <img src="http://placehold.it/50" class="img-fluid rounded-top float-right mr-3" alt="">
 
                                 @endif
-                                <p class="text-right user-name">{{$post->user->name}}</p>
+                                <p class="text-right user-name">{{$post->user->name}} {{isset($post->charity->name) ? " - ".$post->charity->name : ""}}</p>
                             </th>
                             <th class="mb-2">{{$post->city->name}}</th>
                             <th>{{$post->address}} </th>

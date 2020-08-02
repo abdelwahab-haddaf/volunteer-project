@@ -29,6 +29,26 @@
             height: 150px;
             object-fit: cover;
         }
+
+        .opt-menu{
+            width: 100px !important;
+        }
+
+        .user-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        table thead th {
+            vertical-align: middle !important;
+            border-bottom:none !important;
+        }
+
+        .user-name {
+            margin-top: 12px;
+        }
+
     </style>
 @endsection
 
@@ -49,44 +69,97 @@
                     </p>
                 </div>
 
-                <div class="col-md-3 p-4 m-3 user-info text-center">
-                    @if($charity->admin->image != null)
-                    <img src="{{asset('users_image/'.$charity->admin->image)}}" class="rounded-circle my-2" alt="">
-                    @else
-                        <img src="http://placehold.it/150" class="rounded-circle my-2" alt="">
-                    @endif
-                    <h4 class="my-2"> {{$charity->admin->name}}</h4>
-                    @if(auth()->user()->id == $charity->user_id)
-                        <form action="" method="post">
-                            <button type="button" class="btn btn-danger">حذف</button>
-                        </form>
-                    @endif
-                </div>
+             <div class="col-12">
+                 @foreach($posts as $index=>$post)
+                     @php
+                         if ($post->user !== null) {
+                             $name = $post->user->name;
+                             $image = $post->user->image;
+                             }
+                         elseif($post->charity != null){
+                             $name = $post->charity->name;
+                             $image = $post->charity->image;
+                         }
+                     @endphp
 
-                @if(count($charity->user) > 0 )
-                @foreach($charity->user as $user)
-                <div class="col-md-3 p-4 m-3 user-info text-center">
-                    @if($user->image != null)
-                        <img src="{{asset('users_image/'.$user->image)}}" class="rounded-circle my-2" alt="">
-                    @else
-                        <img src="http://placehold.it/150" class="rounded-circle my-2" alt="">
-                    @endif
-                    <h4 class="my-2">{{$user->name}}</h4>
-                    @if(auth()->user()->id == $charity->user_id)
-                    <form action="" method="post">
-                        <button type="button" class="btn btn-danger">حذف</button>
-                    </form>
-                        @endif
-                </div>
-                @endforeach
-                @endif
+
+                     <div class="card  mb-2" dir="rtl">
+                         @php
+                             if ($post->post_type==1)
+                                 $bg_color = '#ADDCCA';
+                             else
+                                 $bg_color = '#FE6F5E';
+                         @endphp
+
+                         <div class="card-header m-0" style="background-color: {{$bg_color}}">
+                             <h4 class="text-right d-inline"> {{$post->title}}</h4>
+
+
+                             @if ($post->user_id==auth()->user()->id)
+                                 <div class="dropdown float-left">
+                                     <button class="btn" type="button" id="options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                         {{--                            خيارات--}}
+                                         <i class="fa fa-chevron-circle-down"></i>
+                                     </button>
+                                     <div class="dropdown-menu opt-menu" aria-labelledby="options" >
+                                         <a class="dropdown-item text-center" href="{{route('mypost.edit',$post->id)}}" >تعديل المنشور </a>
+                                         <form action="{{route('front.deletePost',$post->id)}}" method="post" id="delete">
+                                             @csrf
+                                             @method('delete')
+                                             <button type="submit" class="dropdown-item text-center delete">حذف المنشور</button>
+                                         </form>
+                                     </div>
+                                 </div>
+                             @endif
+                         </div>
+                         <div class="card-body p-0">
+                             <table class="table table-bordered m-0">
+                                 <thead>
+                                 <tr>
+                                     <th>
+
+                                         @if (isset($image))
+                                             <img src="{{asset('users_image/'.$image)}}" class="img-fluid rounded-circle float-right mr-3 user-image" alt="">
+                                         @else
+                                             <img src="http://placehold.it/50" class="img-fluid rounded-top float-right mr-3" alt="">
+
+                                         @endif
+                                         <p class="text-right user-name"> {{$name}} </p>
+                                     </th>
+                                     <th class="mb-2">{{$post->city->name}}</th>
+                                     <th>{{$post->address}} </th>
+                                     <th>{{$post->created_at->format('d/m/y')}}</th>
+                                 </tr>
+                                 </thead>
+
+                             </table>
+
+                             <div class="content p-4 ">
+                                 <p> {{\Illuminate\Support\Str::limit($post->content,100)}} </p>
+                             </div>
+
+                             <div class="button m-4">
+                                 <button type="button" class="btn mx-2" style="background-color: {{$bg_color}}">ارسل رسالة</button>
+
+                                 <a href="{{route('front.showPost',['id'=>$post->id ,'slug'=>str_replace(" ","_",$post->title)])}}" class="btn" style="background-color: {{$bg_color}}">
+                                     اقرأ المزيد
+                                 </a>
+                             </div>
+                         </div>
+
+
+                     </div>
+
+
+                 @endforeach
+             </div>
 
             </div>
         </div>
         <div class="col-3 sidebar">
             <ul>
-                <li><a href="" class="nav-link"> الأعضاء</a></li>
-                <li><a href="" class="nav-link">المنشورات</a></li>
+                <li><a href="{{route('displayMembers',$charity->id)}}" class="nav-link"> الأعضاء</a></li>
+                <li><a href="{{route('displayPosts',$charity->id)}}" class="nav-link">المنشورات</a></li>
                 <li><a href="{{route('editFromUser',$charity->id)}}" class="nav-link">تعديل</a></li>
             </ul>
 

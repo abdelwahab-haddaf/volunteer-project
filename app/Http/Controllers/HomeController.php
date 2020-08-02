@@ -29,13 +29,14 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::with(['user', 'city'])->orderBy('id', 'desc');
+        $posts = Post::with(['user','charity', 'city'])->orderBy('id', 'desc');
         if ($request->has('search') && $request->get('search')!=''){
             $posts = $posts->where('title','like','%'.$request->search.'%')
                 ->orWhere('content','like','%'.$request->search.'%');
         }
 
         $posts = $posts->paginate(30);
+
         $adv = Advertisement::orderBy('id','desc')->first();
         return view('home',['posts'=>$posts,'adv'=>$adv]);
     }
