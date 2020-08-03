@@ -14,12 +14,17 @@ class Messages extends Controller
 
     public function index()
     {
-        $user_id = auth()->user()->id;
 
-        $messages = Message::with(['user','chat'])->where('user_id',$user_id)->get();
-         $chat = Chat::with(['user1','user2'])->where('user_id',$user_id)->orWhere('user_id2',$user_id)->get();
-//        dd($chat);
-         return view('front-end.users.messages',['messages'=>$messages,'chat'=>$chat]);
+        $messagesReceived = Message::with(['user','user2'])->where('user_id2',auth()->user()->id)->orderBy('id','desc')->get();
+        return view('front-end.users.in-messages',['messagesReceived'=>$messagesReceived]);
+
+    }
+
+    public function outMessages()
+    {
+
+        $messagesSent = Message::with(['user','user2'])->where('user_id',auth()->user()->id)->orderBy('id','desc')->get();
+        return view('front-end.users.out-messages',['messagesSent'=>$messagesSent]);
 
     }
 
@@ -32,13 +37,21 @@ class Messages extends Controller
 
     public function store(Request $request)
     {
-        //
+       $data = $request->validate([
+        'content'=>'required',
+        'user_id2'=>'required',
+        'user_id'=>'required'
+        ]);
+//       dd($data);
+        Message::create($data);
+        return back();
     }
 
 
     public function show($id)
     {
-        //
+        $message = Message::findOrFail($id);
+        return view('front-end.users.displayMessages',['message'=>$message]);
     }
 
 

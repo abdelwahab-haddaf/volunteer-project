@@ -58,6 +58,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Charity::class,'charity_user');
     }
 
+    public function message(){
+        return $this->hasMany(Message::class);
+    }
 
 
 }

@@ -70,6 +70,11 @@ border-radius: 10px;
             margin-top: 12px;
         }
 
+        .message {
+            width: 100%;
+            height: 100px;
+            resize: none;
+        }
 
             @if($post->post_type==0)
              .card-header h4 {
@@ -147,8 +152,10 @@ border-radius: 10px;
                     </div>
 
                     <div class="button m-4">
-                        <button type="button" class="btn mx-2" style="background-color: {{$bg_color}};">ارسل رسالة</button>
+                        <button type="button" class="btn text-center" data-toggle="modal" data-target="#sendMessage" style="background-color: {{$bg_color}};">أرسل رسالة</button>
+
                         <a href="#comment-area" class="btn mx-2" style="background-color: {{$bg_color}};">اضافة تعليق</a>
+
 
                     </div>
                 </div>
@@ -172,6 +179,9 @@ border-radius: 10px;
                     <p> {{\Illuminate\Support\Str::limit($post->content,100)}} </p>
 
                 </div>
+
+
+
                 <div class="modal-footer d-flex justify-content-start">
                     <form action="{{route('mypost.destroy',$post->id)}}" method="post">
                         @csrf
@@ -184,6 +194,35 @@ border-radius: 10px;
         </div>
     </div>
 
+
+    <div class="modal fade" id="sendMessage" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> أرسل رسالة إلى {{ $post->user->name }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{route('messages.store')}}" method="post">
+                    @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <textarea name="content" class="form-control message" ></textarea>
+                        <input type="hidden" name="user_id2" value="{{$post->user->id}}">
+                        <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
+                    </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-start">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">الغاء</button>
+                    <button type="submit" class="btn btn-outline-success" >ارسال</button>
+                </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
 
 
 

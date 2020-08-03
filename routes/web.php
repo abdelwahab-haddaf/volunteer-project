@@ -12,6 +12,8 @@
 */
 
 
+use App\Models\Message;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -90,15 +92,22 @@ Route::post('contact-us', 'Admin\Contact_Us@store')->name('send-message');
 
 // routes for user messages
 Route::resource('messages', 'FrontEnd\Messages');
+
+Route::post('sendMessages','FrontEnd\Messages@store')->name('messages.store');
+Route::get('sent-messages','FrontEnd\Messages@outMessages')->name('outMessages');
 Route::get('message/{id}', 'FrontEnd\Messages@getMessages')->name('getMessages');
+Route::get('d-messages',function (){
+   return view('front-end.users.displayMessages');
+});
 
 
 // this page for try functions
 
 //Route::post('search', 'HomeController@search')->name('search-name');
 Route::get('empty', function () {
-    $users = \App\Models\User::all();
-    return view('empty', ['users' => $users]);
+    $messagesSent = Message::where('user_id',auth()->user()->id)->get();
+    $messagesReceived = Message::where('user_id2',auth()->user()->id)->get();
+    return view('empty',['messagesSent'=>$messagesSent,'messagesReceived'=>$messagesReceived]);
 });
 
 

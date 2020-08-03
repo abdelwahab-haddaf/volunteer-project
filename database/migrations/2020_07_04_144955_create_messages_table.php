@@ -15,7 +15,7 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('chat_id');
+            $table->integer('user_id2');
             $table->integer('user_id');
             $table->text('content');
             $table->integer('isRead')->default(1);

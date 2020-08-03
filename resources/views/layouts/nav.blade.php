@@ -33,6 +33,7 @@
                             <li><a href="{{route('home')}}" class="nav-link {{activeList('home')}}  p-0 m-0">الصفحة الرئيسية</a></li>
                             <li><a href="{{route('member.show',auth()->user()->id)}}" class="nav-link {{activeList('member')}}  p-0 m-0">الصفحة الشخصية </a></li>
                             <li><a href="{{route('mypost.create')}}" class="nav-link  {{activeList('mypost')}} p-0 m-0">منشور جديد</a></li>
+                            <li><a href="{{route('messages.index')}}" class="nav-link  {{activeList('messages')}} p-0 m-0">الرسائل</a></li>
                             <li><a href="{{route('contactUs')}}" class="nav-link {{activeList('contact-us')}} p-0 m-0 ">تواصل معنا</a></li>
                         </ul>
 

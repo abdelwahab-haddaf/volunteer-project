@@ -20,80 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c90a477-a178-4fb9-9db5-752657b663e1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/image/09.jpg_1595353879.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/09.jpg_1596274587.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/11.jpg_1595353879.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/11.jpg_1596274587.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/13.jpg_1595353879.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/13.jpg_1596274587.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/15.jpg_1595353879.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/15.jpg_1596274587.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/16.jpg_1595353879.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/16.jpg_1596274587.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/18.jpg_1595353879.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/18.jpg_1596274587.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/LongHorn.jpg_1596277609.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/capture20200725161623113.png_1596317336.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/capture20200725161853697.png_1596317336.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/capture20200725162338016.png_1596317336.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/capture20200726154626191.png_1596317643.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1596108761-IMG_20190121_141105683.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1596108810-IMG_20190121_141105683.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1596145117-news3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1596225616-IMG_20190121_141105683.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1596226110-IMG_20181224_112716314.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1596226424-capture20200723004914526.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1596226571-capture20200723004914526.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1596226687-capture20200723004914526.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1596226720-capture20200723004914526.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1596226780-IMG_20190121_141105683.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1596227354-IMG_20190205_173344016.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1596265456-IMG_20181224_112716314.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1596266261-6-manifestations-mercy-islam.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/users_image/1596277357-1_0FqDC0_r1f5xFz3IywLYRA.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front-end/charities/members.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front-end/charities/posts.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front-end/users/displayMessages.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front-end/users/in-messages.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front-end/users/out-messages.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/charities.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/charities.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEnd/membersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEnd/membersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEnd/postsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEnd/postsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Charity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Charity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEnd/Messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEnd/Messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Message.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/packages.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/packages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ChatFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ChatFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_23_134026_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_23_134026_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_23_134045_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_23_134045_create_comments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_23_134128_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_23_134128_create_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_23_134408_create_requests_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_23_134408_create_requests_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_23_142925_create_categories_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_23_142925_create_categories_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_05_214353_create_cities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_05_214353_create_cities_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_05_215639_create_categories_images_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_05_215639_create_categories_images_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_12_112215_create_category_post_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_12_112215_create_category_post_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_13_221926_create_images_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_13_221926_create_images_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_24_111725_create_advertisements_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_24_111725_create_advertisements_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_19_223257_create_user_information_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_19_223257_create_user_information_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_28_131808_create_charities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_28_131808_create_charities_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_28_132516_create_charity_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_28_132516_create_charity_user_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_04_144955_create_messages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_04_144955_create_messages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_04_145027_create_contact_us_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/charities/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/charities/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/empty.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empty.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front-end/charities/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front-end/charities/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front-end/charities/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front-end/charities/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front-end/charities/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front-end/charities/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front-end/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front-end/posts/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front-end/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front-end/posts/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front-end/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front-end/users/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front-end/users/messages.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -216,17 +153,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/front-end/charities" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/front-end/users" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\volunteer-project\resources\views\front-end\users" />
       <recent name="C:\laragon\www\volunteer-project\resources\views\front-end\charities" />
       <recent name="C:\laragon\www\Volunteer\resources\views\front-end\charities" />
       <recent name="C:\laragon\www\Volunteer\resources\views\admin\charities" />
       <recent name="C:\laragon\www\Volunteer\resources\views\admin" />
-      <recent name="C:\laragon\www\Volunteer\resources\views\front-end\users" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\laragon\www\Volunteer\app\Http\Controllers\FrontEnd" />
@@ -434,6 +371,10 @@
       <workItem from="1596264104950" duration="2254000" />
       <workItem from="1596274471944" duration="7889000" />
       <workItem from="1596312375342" duration="7043000" />
+      <workItem from="1596360012694" duration="1357000" />
+      <workItem from="1596372762507" duration="1323000" />
+      <workItem from="1596396820312" duration="4558000" />
+      <workItem from="1596433751737" duration="1588000" />
     </task>
     <servers />
   </component>
@@ -471,10 +412,10 @@
     <state x="315" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680@0.0.1280.680" timestamp="1593891844518" />
     <state x="336" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1591014360873" />
     <state x="315" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1366.708/0.0.1280.680@0.0.1280.680" timestamp="1593949514235" />
-    <state x="228" y="111" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1596316491376">
+    <state x="228" y="111" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1596373281412">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="228" y="111" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680/1920.0.1366.728@0.0.1280.680" timestamp="1596316491376" />
+    <state x="228" y="111" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680/1920.0.1366.728@0.0.1280.680" timestamp="1596373281412" />
     <state x="228" y="111" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1594203602638" />
     <state x="243" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1592921483579" />
     <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1596313380500">
@@ -497,24 +438,13 @@
     </state>
     <state x="318" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1592770233741" />
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1591015821104" />
-    <state x="324" y="46" width="672" height="634" key="search.everywhere.popup" timestamp="1596317872298">
+    <state x="324" y="46" width="672" height="634" key="search.everywhere.popup" timestamp="1596435086842">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="324" y="46" width="672" height="634" key="search.everywhere.popup/0.0.1280.680/1920.0.1366.728@0.0.1280.680" timestamp="1596317872298" />
+    <state x="324" y="46" width="672" height="634" key="search.everywhere.popup/0.0.1280.680/1920.0.1366.728@0.0.1280.680" timestamp="1596435086842" />
     <state x="324" y="46" width="672" height="634" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1594205015782" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1596282360753" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1596400993552" />
     <state x="389" y="55" width="756" height="768" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1594379275356" />
     <state x="324" y="46" width="672" height="634" key="search.everywhere.popup/1920.0.1366.708/0.0.1280.680@0.0.1280.680" timestamp="1593950912423" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/front-end/users/messages.blade.php</url>
-          <line>82</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
